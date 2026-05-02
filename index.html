@@ -3,110 +3,110 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PapAiEra Documentation | Pulp & Paper Industry AI Library</title>
+  <title>PapAiEra Documentation | Pulp & Paper AI Library</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --secondary: #0ea5e9;
-      --accent: #8b5cf6;
+      --bg: #f5f3ff;
+      --bg-white: #ffffff;
+      --bg-card: #ffffff;
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --primary-light: #a5b4fc;
+      --secondary: #06b6d4;
+      --accent: #f43f5e;
       --success: #10b981;
       --warning: #f59e0b;
-      --danger: #ef4444;
-      --dark: #0f172a;
-      --dark-800: #1e293b;
-      --dark-700: #334155;
-      --dark-600: #475569;
-      --light: #f8fafc;
-      --gray-100: #f1f5f9;
-      --gray-200: #e2e8f0;
-      --gray-300: #cbd5e1;
-      --gray-400: #94a3b8;
-      --gray-500: #64748b;
-      --gray-600: #475569;
-      --gray-700: #334155;
-      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-      --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-      --radius: 12px;
-      --radius-lg: 16px;
-      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --text-dark: #1e1b4b;
+      --text-body: #374151;
+      --text-muted: #6b7280;
+      --text-light: #9ca3af;
+      --border: #e5e7eb;
+      --border-light: #f3f4f6;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 30px rgba(0,0,0,0.1);
+      --shadow-xl: 0 20px 50px rgba(0,0,0,0.12);
+      --radius: 14px;
+      --radius-lg: 20px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f0f4f8;
-      color: var(--dark);
+      background: var(--bg);
+      color: var(--text-body);
       line-height: 1.7;
       min-height: 100vh;
     }
 
     /* ===== HEADER ===== */
     header {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-      color: #ffffff;
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #3730a3 100%);
       padding: 0;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 30px rgba(99, 102, 241, 0.3);
     }
     .header-content {
-      max-width: 1400px;
+      max-width: 1440px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.85rem 2rem;
+      padding: 0.75rem 2rem;
       gap: 1rem;
     }
     .logo {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      font-weight: 800;
-      font-size: 1.4rem;
-      color: #ffffff;
       text-decoration: none;
     }
     .logo-icon {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: 10px;
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, #6366f1, #06b6d4);
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 1.2rem;
+      font-weight: 900;
+      font-size: 1.3rem;
       color: #ffffff;
-      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5);
+    }
+    .logo-text {
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+    .logo-text span {
+      color: #a5b4fc;
     }
     nav ul {
       display: flex;
       list-style: none;
-      gap: 0.25rem;
+      gap: 0.2rem;
       flex-wrap: wrap;
     }
     nav a {
-      color: #cbd5e1;
+      color: #c7d2fe;
       text-decoration: none;
-      padding: 0.5rem 0.9rem;
-      border-radius: 8px;
+      padding: 0.5rem 0.85rem;
+      border-radius: 10px;
       font-weight: 500;
       font-size: 0.88rem;
       transition: var(--transition);
     }
     nav a:hover, nav a.active {
-      background: rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.15);
       color: #ffffff;
     }
     .header-actions {
@@ -115,8 +115,8 @@
       align-items: center;
     }
     .btn {
-      padding: 0.5rem 1.15rem;
-      border-radius: 8px;
+      padding: 0.5rem 1.1rem;
+      border-radius: 10px;
       font-weight: 600;
       font-size: 0.88rem;
       cursor: pointer;
@@ -128,98 +128,94 @@
       gap: 0.4rem;
     }
     .btn-primary {
-      background: var(--primary);
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
       color: #ffffff;
-      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
     }
     .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
       color: #ffffff;
     }
-    .btn-outline {
-      background: transparent;
-      border: 1.5px solid #64748b;
-      color: #cbd5e1;
+    .btn-ghost {
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      color: #e0e7ff;
     }
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: #94a3b8;
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: rgba(255,255,255,0.4);
       color: #ffffff;
     }
 
     /* ===== LAYOUT ===== */
     .container {
-      max-width: 1400px;
+      max-width: 1440px;
       margin: 0 auto;
       padding: 2rem;
       display: grid;
-      grid-template-columns: 270px 1fr;
+      grid-template-columns: 260px 1fr;
       gap: 2rem;
     }
 
     /* ===== SIDEBAR ===== */
     aside {
       position: sticky;
-      top: 80px;
+      top: 78px;
       height: fit-content;
-      max-height: calc(100vh - 100px);
+      max-height: calc(100vh - 90px);
       overflow-y: auto;
-      background: #ffffff;
+      background: var(--bg-white);
       border-radius: var(--radius-lg);
       padding: 1.5rem;
       box-shadow: var(--shadow-md);
-      border: 1px solid var(--gray-200);
+      border: 1px solid var(--border);
     }
     aside::-webkit-scrollbar { width: 4px; }
-    aside::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 4px; }
-    .sidebar-section { margin-bottom: 1.5rem; }
+    aside::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 4px; }
+    .sidebar-section { margin-bottom: 1.25rem; }
     .sidebar-title {
       font-weight: 700;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--gray-500);
-      margin-bottom: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
       padding-left: 0.75rem;
     }
     .sidebar-nav { list-style: none; }
-    .sidebar-nav li { margin-bottom: 0.15rem; }
+    .sidebar-nav li { margin-bottom: 0.1rem; }
     .sidebar-nav a {
       display: block;
-      padding: 0.45rem 0.75rem;
+      padding: 0.4rem 0.75rem;
       border-radius: 8px;
-      color: var(--gray-700);
+      color: var(--text-body);
       text-decoration: none;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       transition: var(--transition);
       border-left: 3px solid transparent;
     }
     .sidebar-nav a:hover,
     .sidebar-nav a.active {
-      background: #eff6ff;
-      color: var(--primary);
+      background: #eef2ff;
+      color: var(--primary-dark);
       border-left-color: var(--primary);
       font-weight: 600;
     }
     .sidebar-nav .nested {
       margin-left: 0.75rem;
-      font-size: 0.85rem;
-      border-left: 1px solid var(--gray-200);
+      font-size: 0.83rem;
+      border-left: 1px solid var(--border);
       padding-left: 0.5rem;
     }
-    .sidebar-nav .nested a {
-      font-size: 0.85rem;
-      padding: 0.35rem 0.6rem;
-    }
+    .sidebar-nav .nested a { font-size: 0.83rem; padding: 0.3rem 0.6rem; }
 
     /* ===== MAIN ===== */
     main { display: flex; flex-direction: column; gap: 2.5rem; }
 
     /* ===== HERO ===== */
     .hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #1e1b4b 100%);
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #3730a3 60%, #4338ca 100%);
       color: #ffffff;
       padding: 3rem;
       border-radius: var(--radius-lg);
@@ -230,36 +226,44 @@
     .hero::before {
       content: '';
       position: absolute;
-      top: -50%;
-      right: -20%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%);
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(6,182,212,0.2) 0%, transparent 70%);
       border-radius: 50%;
     }
     .hero::after {
       content: '';
       position: absolute;
-      bottom: -30%;
-      left: -10%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, transparent 70%);
+      bottom: -80px;
+      left: -50px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(244,63,94,0.12) 0%, transparent 70%);
       border-radius: 50%;
     }
     .hero > * { position: relative; z-index: 1; }
     .hero h1 {
-      font-size: 2.25rem;
-      font-weight: 800;
+      font-size: 2.3rem;
+      font-weight: 900;
       margin-bottom: 1rem;
-      line-height: 1.2;
+      line-height: 1.15;
       color: #ffffff;
+      letter-spacing: -0.03em;
     }
-    .hero p {
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, #06b6d4, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc {
       font-size: 1.1rem;
-      color: #cbd5e1;
+      color: #c7d2fe;
       margin-bottom: 1.5rem;
-      max-width: 700px;
+      max-width: 680px;
+      line-height: 1.7;
     }
     .hero-tags {
       display: flex;
@@ -269,38 +273,105 @@
     }
     .tag {
       background: rgba(255,255,255,0.12);
-      color: #e2e8f0;
-      padding: 0.3rem 0.85rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
+      color: #e0e7ff;
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.84rem;
       font-weight: 500;
-      border: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+    }
+    .hero-actions {
+      margin-top: 1.75rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
     }
 
     /* ===== SECTION TITLES ===== */
     .section-title {
-      font-size: 1.65rem;
+      font-size: 1.6rem;
       font-weight: 800;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      color: var(--dark);
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
     }
     .section-title::before {
       content: '';
       width: 5px;
-      height: 28px;
-      background: linear-gradient(180deg, var(--primary), var(--accent));
+      height: 30px;
+      background: linear-gradient(180deg, #6366f1, #06b6d4);
       border-radius: 3px;
       flex-shrink: 0;
     }
     .section-subtitle {
-      color: var(--gray-600);
+      color: var(--text-muted);
       font-size: 1rem;
       margin-bottom: 1.5rem;
     }
+
+    /* ===== INSTALLATION ===== */
+    .install-section {
+      background: var(--bg-white);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+    }
+    .install-cmd {
+      background: #0f172a;
+      border-radius: var(--radius);
+      padding: 1.25rem 1.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.05rem;
+      color: #e2e8f0;
+      border: 1px solid #1e293b;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .install-cmd .prompt { color: #10b981; font-weight: 700; }
+    .install-cmd .cmd { color: #22d3ee; font-weight: 600; }
+    .install-cmd .pkg { color: #fbbf24; font-weight: 600; }
+    .install-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .step {
+      text-align: center;
+      padding: 1.25rem;
+      background: #f5f3ff;
+      border-radius: var(--radius);
+      border: 1px solid #e0e7ff;
+      transition: var(--transition);
+    }
+    .step:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
+    }
+    .step-num {
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1rem;
+      margin: 0 auto 0.75rem;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+    }
+    .step strong { color: var(--text-dark); display: block; margin-bottom: 0.2rem; font-size: 0.95rem; }
+    .step p { font-size: 0.85rem; color: var(--text-muted); }
 
     /* ===== CARDS ===== */
     .cards-grid {
@@ -309,17 +380,17 @@
       gap: 1.5rem;
     }
     .card {
-      background: #ffffff;
+      background: var(--bg-white);
       border-radius: var(--radius-lg);
       padding: 1.75rem;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-sm);
       transition: var(--transition);
-      border: 1px solid var(--gray-200);
+      border: 1px solid var(--border);
       display: flex;
       flex-direction: column;
     }
     .card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
       box-shadow: var(--shadow-lg);
       border-color: var(--primary);
     }
@@ -329,41 +400,43 @@
       gap: 1rem;
       margin-bottom: 1rem;
       padding-bottom: 1rem;
-      border-bottom: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--border-light);
     }
     .card-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 12px;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       font-weight: 800;
       flex-shrink: 0;
       color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-    .card-icon.pulping { background: linear-gradient(135deg, #0ea5e9, #0284c7); }
+    .card-icon.pulping { background: linear-gradient(135deg, #06b6d4, #0891b2); }
     .card-icon.papermaking { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
     .card-icon.sustainability { background: linear-gradient(135deg, #10b981, #059669); }
     .card-icon.optimization { background: linear-gradient(135deg, #f59e0b, #d97706); }
-    .card-icon.energy { background: linear-gradient(135deg, #ef4444, #dc2626); }
-    .card-icon.bleaching { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+    .card-icon.energy { background: linear-gradient(135deg, #f43f5e, #e11d48); }
+    .card-icon.bleaching { background: linear-gradient(135deg, #0ea5e9, #0284c7); }
 
     .card-title {
       font-weight: 700;
-      font-size: 1.2rem;
-      margin-bottom: 0.2rem;
-      color: var(--dark);
+      font-size: 1.18rem;
+      margin-bottom: 0.15rem;
+      color: var(--text-dark);
+      letter-spacing: -0.01em;
     }
     .card-subtitle {
-      font-size: 0.85rem;
-      color: var(--gray-500);
+      font-size: 0.82rem;
+      color: var(--text-muted);
       font-family: 'JetBrains Mono', monospace;
     }
     .card-desc {
-      font-size: 0.93rem;
-      color: var(--gray-700);
+      font-size: 0.92rem;
+      color: var(--text-body);
       margin-bottom: 1rem;
       flex-grow: 1;
       line-height: 1.65;
@@ -375,20 +448,20 @@
       margin-bottom: 1rem;
     }
     .func-tag {
-      background: #f1f5f9;
-      color: var(--dark-700);
+      background: #f5f3ff;
+      color: #4338ca;
       padding: 0.25rem 0.65rem;
       border-radius: 6px;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-family: 'JetBrains Mono', monospace;
       font-weight: 500;
-      border: 1px solid var(--gray-200);
+      border: 1px solid #e0e7ff;
     }
     .card-footer {
       display: flex;
       gap: 0.5rem;
       padding-top: 1rem;
-      border-top: 1px solid var(--gray-200);
+      border-top: 1px solid var(--border-light);
     }
     .card-link {
       color: var(--primary);
@@ -402,86 +475,67 @@
     }
     .card-link:hover { color: var(--primary-dark); gap: 0.5rem; }
 
-    /* ===== CODE BLOCKS ===== */
+    /* ===== CODE BLOCKS — HIGH CONTRAST ===== */
     .code-block {
-      background: #0d1117;
+      background: #0a0e1a;
       border-radius: var(--radius);
-      padding: 1.5rem;
+      padding: 1.5rem 1.75rem;
       margin: 1rem 0;
       overflow-x: auto;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.88rem;
-      line-height: 1.7;
-      border: 1px solid #30363d;
-      color: #e6edf3;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+      line-height: 1.8;
+      border: 1px solid #1a1f35;
+      color: #e8eaf0;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.4), 0 4px 12px rgba(0,0,0,0.15);
     }
-    .code-block .comment { color: #8b949e; font-style: italic; }
-    .code-block .keyword { color: #ff7b72; font-weight: 600; }
-    .code-block .string { color: #a5d6ff; }
-    .code-block .function { color: #d2a8ff; }
-    .code-block .number { color: #79c0ff; }
-    .code-block .class { color: #ffa657; }
-    .code-block .param { color: #ffa657; }
-    .code-block .operator { color: #ff7b72; }
-    .code-block .builtin { color: #7ee787; }
-    .code-block .decorator { color: #d2a8ff; }
+    .code-block .comment { color: #7a8ba8; font-style: italic; }
+    .code-block .keyword { color: #ff6b9d; font-weight: 600; }
+    .code-block .string { color: #4ade80; }
+    .code-block .function { color: #c084fc; }
+    .code-block .number { color: #38bdf8; }
+    .code-block .class { color: #fb923c; }
+    .code-block .param { color: #fbbf24; }
+    .code-block .operator { color: #ff6b9d; }
+    .code-block .builtin { color: #34d399; }
+    .code-block .decorator { color: #c084fc; }
+    .code-block .plain { color: #e8eaf0; }
 
-    /* ===== INSTALLATION ===== */
-    .install-section {
-      background: #ffffff;
-      border-radius: var(--radius-lg);
+    /* ===== EXAMPLE BOXES ===== */
+    .example-box {
+      margin-top: 2rem;
+      background: var(--bg-white);
       padding: 2rem;
+      border-radius: var(--radius-lg);
       box-shadow: var(--shadow-md);
-      border: 1px solid var(--gray-200);
+      border: 1px solid var(--border);
     }
-    .install-cmd {
-      background: #0d1117;
-      border-radius: var(--radius);
-      padding: 1.25rem 1.5rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 1rem;
-      color: #e6edf3;
-      border: 1px solid #30363d;
+    .example-header {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      margin: 1rem 0;
-    }
-    .install-cmd .prompt { color: #8b949e; }
-    .install-cmd .cmd { color: #7ee787; font-weight: 600; }
-    .install-cmd .pkg { color: #ffa657; }
-    .install-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .step {
-      text-align: center;
-      padding: 1.25rem;
-      background: var(--gray-100);
-      border-radius: var(--radius);
-      border: 1px solid var(--gray-200);
-    }
-    .step-num {
-      width: 36px;
-      height: 36px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: #ffffff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      gap: 0.65rem;
+      margin-bottom: 1.25rem;
       font-weight: 700;
-      font-size: 0.95rem;
-      margin: 0 auto 0.75rem;
-      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+      font-size: 1.05rem;
+      color: var(--text-dark);
     }
-    .step strong { color: var(--dark); display: block; margin-bottom: 0.25rem; }
-    .step p { font-size: 0.88rem; color: var(--gray-500); }
+    .example-badge {
+      padding: 0.3rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #ffffff;
+    }
+    .example-badge.blue { background: linear-gradient(135deg, #6366f1, #818cf8); }
+    .example-badge.purple { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
+    .example-badge.green { background: linear-gradient(135deg, #10b981, #34d399); }
+    .example-badge.orange { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+    .example-badge.cyan { background: linear-gradient(135deg, #06b6d4, #22d3ee); }
+    .example-badge.rose { background: linear-gradient(135deg, #f43f5e, #fb7185); }
 
-    /* ===== FEATURES GRID ===== */
+    /* ===== FEATURES ===== */
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -492,76 +546,44 @@
       display: flex;
       align-items: flex-start;
       gap: 0.85rem;
-      padding: 1.25rem;
-      background: #ffffff;
+      padding: 1.35rem;
+      background: var(--bg-white);
       border-radius: var(--radius);
-      border: 1px solid var(--gray-200);
+      border: 1px solid var(--border);
       box-shadow: var(--shadow-sm);
       transition: var(--transition);
     }
     .feature:hover {
       border-color: var(--primary);
       box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
     }
     .feature-icon {
       font-size: 1.5rem;
       flex-shrink: 0;
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #eff6ff;
-      border-radius: 10px;
+      background: #f5f3ff;
+      border-radius: 12px;
     }
-    .feature strong { color: var(--dark); display: block; margin-bottom: 0.2rem; font-size: 0.95rem; }
-    .feature p { font-size: 0.88rem; color: var(--gray-600); line-height: 1.5; }
-
-    /* ===== EXAMPLE BOXES ===== */
-    .example-box {
-      margin-top: 2rem;
-      background: #ffffff;
-      padding: 1.75rem;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--gray-200);
-    }
-    .example-header {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: var(--dark);
-    }
-    .example-badge {
-      padding: 0.25rem 0.7rem;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #ffffff;
-    }
-    .example-badge.blue { background: var(--primary); }
-    .example-badge.purple { background: var(--accent); }
-    .example-badge.green { background: var(--success); }
-    .example-badge.orange { background: var(--warning); }
-    .example-badge.cyan { background: var(--secondary); }
+    .feature strong { color: var(--text-dark); display: block; margin-bottom: 0.2rem; font-size: 0.95rem; }
+    .feature p { font-size: 0.87rem; color: var(--text-muted); line-height: 1.55; }
 
     /* ===== QUICK REFERENCE ===== */
     .quick-ref {
-      background: #ffffff;
-      padding: 2rem;
+      background: var(--bg-white);
+      padding: 2.25rem;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-md);
-      border: 1px solid var(--gray-200);
+      border: 1px solid var(--border);
     }
     .ref-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.75rem;
       margin-top: 1.5rem;
     }
     .ref-col h4 {
@@ -573,39 +595,40 @@
     .ref-col ul {
       list-style: none;
       font-size: 0.9rem;
-      color: var(--gray-700);
+      color: var(--text-body);
       line-height: 1.9;
     }
     .ref-col ul li code {
-      background: var(--gray-100);
-      padding: 0.15rem 0.45rem;
-      border-radius: 4px;
+      background: #f5f3ff;
+      padding: 0.15rem 0.5rem;
+      border-radius: 5px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
-      color: var(--dark);
-      border: 1px solid var(--gray-200);
+      font-size: 0.8rem;
+      color: #4338ca;
+      border: 1px solid #e0e7ff;
+      font-weight: 500;
     }
     .ref-col .mini-code {
-      background: #0d1117;
-      border-radius: 8px;
-      padding: 1rem;
+      background: #0a0e1a;
+      border-radius: 10px;
+      padding: 1.1rem;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
-      line-height: 1.7;
-      color: #e6edf3;
-      border: 1px solid #30363d;
+      font-size: 0.8rem;
+      line-height: 1.8;
+      color: #e8eaf0;
+      border: 1px solid #1a1f35;
     }
 
     /* ===== FOOTER ===== */
     footer {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: #94a3b8;
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+      color: #a5b4fc;
       padding: 3rem 2rem 1.5rem;
       margin-top: 3rem;
       border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     }
     .footer-content {
-      max-width: 1400px;
+      max-width: 1440px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -620,24 +643,24 @@
     .footer-section p {
       font-size: 0.9rem;
       line-height: 1.7;
-      color: #94a3b8;
+      color: #a5b4fc;
     }
     .footer-section a {
       display: block;
-      color: #94a3b8;
+      color: #c7d2fe;
       text-decoration: none;
       margin-bottom: 0.5rem;
       transition: var(--transition);
       font-size: 0.92rem;
     }
-    .footer-section a:hover { color: #60a5fa; padding-left: 4px; }
+    .footer-section a:hover { color: #ffffff; padding-left: 4px; }
     .footer-bottom {
       text-align: center;
       margin-top: 2.5rem;
       padding-top: 1.5rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid rgba(255,255,255,0.1);
       font-size: 0.88rem;
-      color: #64748b;
+      color: #818cf8;
     }
 
     /* ===== RESPONSIVE ===== */
@@ -652,12 +675,12 @@
       }
       .sidebar-section { margin-bottom: 0; flex: 1; min-width: 200px; }
       .header-content { flex-wrap: wrap; }
-      nav ul { order: 3; width: 100%; margin-top: 0.75rem; justify-content: center; }
+      nav ul { order: 3; width: 100%; margin-top: 0.5rem; justify-content: center; }
       .header-actions { order: 2; }
     }
     @media (max-width: 640px) {
       .hero { padding: 2rem 1.5rem; }
-      .hero h1 { font-size: 1.6rem; }
+      .hero h1 { font-size: 1.55rem; }
       .cards-grid { grid-template-columns: 1fr; }
       nav ul { flex-direction: column; align-items: center; }
       .header-content { padding: 0.75rem 1rem; }
@@ -665,10 +688,10 @@
 
     /* ===== ANIMATIONS ===== */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(16px); }
+      from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .card { animation: fadeInUp 0.4s ease forwards; opacity: 0; }
+    .card { animation: fadeInUp 0.45s ease forwards; opacity: 0; }
     .card:nth-child(1) { animation-delay: 0.05s; }
     .card:nth-child(2) { animation-delay: 0.1s; }
     .card:nth-child(3) { animation-delay: 0.15s; }
@@ -684,7 +707,7 @@
     <div class="header-content">
       <a href="#" class="logo">
         <div class="logo-icon">P</div>
-        <span>PapAiEra Docs</span>
+        <div class="logo-text">Pap<span>AiEra</span> Docs</div>
       </a>
       <nav>
         <ul>
@@ -697,7 +720,7 @@
         </ul>
       </nav>
       <div class="header-actions">
-        <a href="https://pypi.org/project/PapAiEra/" target="_blank" class="btn btn-outline">📦 PyPI</a>
+        <a href="https://pypi.org/project/PapAiEra/" target="_blank" class="btn btn-ghost">📦 PyPI</a>
         <a href="https://github.com/krajasekhar1410/PapAiera" target="_blank" class="btn btn-primary">⭐ GitHub</a>
       </div>
     </div>
@@ -768,8 +791,8 @@
 
       <!-- HERO -->
       <section class="hero" id="overview">
-        <h1>PapAiEra — AI-Powered Optimization for the Pulp & Paper Industry</h1>
-        <p>A comprehensive Python library that mathematically models and solves optimization problems based on Best Available Techniques (BAT) reference documents from the EU BREF 2015.</p>
+        <h1>PapAiEra — <span class="highlight">AI-Powered Optimization</span> for the Pulp &amp; Paper Industry</h1>
+        <p class="hero-desc">A comprehensive Python library that mathematically models and solves optimization problems based on Best Available Techniques (BAT) reference documents from the EU BREF 2015.</p>
         <div class="hero-tags">
           <span class="tag">🔬 Process Modeling</span>
           <span class="tag">🤖 Machine Learning</span>
@@ -778,19 +801,20 @@
           <span class="tag">📊 Industry 4.0 Ready</span>
           <span class="tag">🇪🇺 BAT Compliant</span>
         </div>
-        <div style="margin-top: 1.75rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
-          <a href="#installation" class="btn btn-primary" style="padding: 0.65rem 1.5rem; font-size: 0.95rem;">🚀 Get Started</a>
-          <a href="#examples" class="btn btn-outline" style="padding: 0.65rem 1.5rem; font-size: 0.95rem; background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.25); color: #e2e8f0;">📖 View Examples</a>
+        <div class="hero-actions">
+          <a href="#installation" class="btn btn-primary" style="padding: 0.7rem 1.6rem; font-size: 0.95rem;">🚀 Get Started</a>
+          <a href="#examples" class="btn btn-ghost" style="padding: 0.7rem 1.6rem; font-size: 0.95rem;">📖 View Examples</a>
         </div>
       </section>
 
       <!-- INSTALLATION -->
       <section class="install-section" id="installation">
         <h2 class="section-title">Installation</h2>
-        <p style="color: var(--gray-600); margin-bottom: 0.5rem;">Install PapAiEra from PyPI in seconds:</p>
+        <p style="color: var(--text-muted); margin-bottom: 0.5rem;">Install PapAiEra from PyPI in seconds:</p>
         <div class="install-cmd">
           <span class="prompt">$</span>
-          <span class="cmd">pip</span> install <span class="pkg">PapAiEra</span>
+          <span class="cmd">pip install</span>
+          <span class="pkg">PapAiEra</span>
         </div>
         <div class="install-steps">
           <div class="step">
@@ -811,7 +835,7 @@
           <div class="step">
             <div class="step-num">4</div>
             <strong>Deploy</strong>
-            <p>Integrate into mill DCS/SCADA</p>
+            <p>Integrate into mill DCS</p>
           </div>
         </div>
       </section>
@@ -939,7 +963,7 @@
                 <p class="card-subtitle">pap_ai_era.bleaching</p>
               </div>
             </div>
-            <p class="card-desc">AI-driven bleaching sequence optimizer supporting dynamic stage configuration (D, EOP, A, O, P, Z stages), chemical cost minimization, and multi-target quality achievement (Brightness ISO, Kappa, Viscosity).</p>
+            <p class="card-desc">AI-driven bleaching sequence optimizer supporting dynamic stage configuration (D, EOP, A, O, P, Z stages), chemical cost minimization, and multi-target quality achievement.</p>
             <div class="card-functions">
               <span class="func-tag">run_optimization_from_config()</span>
               <span class="func-tag">build_sequence()</span>
@@ -958,40 +982,40 @@
         <div class="example-box" id="ex-kraft">
           <div class="example-header">
             <span class="example-badge blue">Example</span>
-            Kraft Digester — H-Factor & Mass Balance
+            Kraft Digester — H-Factor &amp; Mass Balance
           </div>
           <div class="code-block">
-<span class="keyword">from</span> pap_ai_era.pulping.kraft <span class="keyword">import</span> (
-    calculate_h_factor,
-    digester_mass_balance,
-    predict_kappa
-)
+<span class="keyword">from</span> <span class="plain">pap_ai_era.pulping.kraft</span> <span class="keyword">import</span> <span class="plain">(</span>
+    <span class="function">calculate_h_factor</span><span class="plain">,</span>
+    <span class="function">digester_mass_balance</span><span class="plain">,</span>
+    <span class="function">predict_kappa</span>
+<span class="plain">)</span>
 
 <span class="comment"># ── 1. Calculate integrated cooking reaction rate ──</span>
 <span class="comment"># Cooking at 165°C for 45 minutes</span>
-h_factor = <span class="function">calculate_h_factor</span>(
-    <span class="param">temperature_celsius</span>=<span class="number">165.0</span>,
-    <span class="param">time_minutes</span>=<span class="number">45.0</span>
-)
-<span class="builtin">print</span>(<span class="string">f"H-Factor: {h_factor:.2f}"</span>)
+<span class="plain">h_factor = </span><span class="function">calculate_h_factor</span><span class="plain">(</span>
+    <span class="param">temperature_celsius</span><span class="plain">=</span><span class="number">165.0</span><span class="plain">,</span>
+    <span class="param">time_minutes</span><span class="plain">=</span><span class="number">45.0</span>
+<span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"H-Factor: {h_factor:.2f}"</span><span class="plain">)</span>
 <span class="comment"># → H-Factor: 892.45</span>
 
 <span class="comment"># ── 2. Digester mass balance ──</span>
-balance = <span class="function">digester_mass_balance</span>(
-    <span class="param">wood_input_tpd</span>=<span class="number">1200</span>,
-    <span class="param">chip_moisture_pct</span>=<span class="number">50.0</span>,
-    <span class="param">kappa_target</span>=<span class="number">30</span>
-)
-<span class="builtin">print</span>(<span class="string">f"Pulp output: {balance['pulp_tpd']:.1f} tpd"</span>)
-<span class="builtin">print</span>(<span class="string">f"Black liquor: {balance['bl_solids_tpd']:.1f} tpd"</span>)
+<span class="plain">balance = </span><span class="function">digester_mass_balance</span><span class="plain">(</span>
+    <span class="param">wood_input_tpd</span><span class="plain">=</span><span class="number">1200</span><span class="plain">,</span>
+    <span class="param">chip_moisture_pct</span><span class="plain">=</span><span class="number">50.0</span><span class="plain">,</span>
+    <span class="param">kappa_target</span><span class="plain">=</span><span class="number">30</span>
+<span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Pulp output: {balance['pulp_tpd']:.1f} tpd"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Black liquor: {balance['bl_solids_tpd']:.1f} tpd"</span><span class="plain">)</span>
 
 <span class="comment"># ── 3. Predict Kappa from cooking conditions ──</span>
-kappa = <span class="function">predict_kappa</span>(
-    <span class="param">h_factor</span>=h_factor,
-    <span class="param">ea_charge_pct</span>=<span class="number">18.5</span>,
-    <span class="param">sulfidity_pct</span>=<span class="number">25.0</span>
-)
-<span class="builtin">print</span>(<span class="string">f"Predicted Kappa: {kappa:.1f}"</span>)
+<span class="plain">kappa = </span><span class="function">predict_kappa</span><span class="plain">(</span>
+    <span class="param">h_factor</span><span class="plain">=h_factor,</span>
+    <span class="param">ea_charge_pct</span><span class="plain">=</span><span class="number">18.5</span><span class="plain">,</span>
+    <span class="param">sulfidity_pct</span><span class="plain">=</span><span class="number">25.0</span>
+<span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Predicted Kappa: {kappa:.1f}"</span><span class="plain">)</span>
           </div>
         </div>
 
@@ -999,30 +1023,30 @@ kappa = <span class="function">predict_kappa</span>(
         <div class="example-box" id="ex-sulphite">
           <div class="example-header">
             <span class="example-badge green">Example</span>
-            Sulphite Process — Yield & SO₂ Recovery
+            Sulphite Process — Yield &amp; SO₂ Recovery
           </div>
           <div class="code-block">
-<span class="keyword">from</span> pap_ai_era.pulping.sulphite <span class="keyword">import</span> (
-    calculate_yield,
-    so2_recovery
-)
+<span class="keyword">from</span> <span class="plain">pap_ai_era.pulping.sulphite</span> <span class="keyword">import</span> <span class="plain">(</span>
+    <span class="function">calculate_yield</span><span class="plain">,</span>
+    <span class="function">so2_recovery</span>
+<span class="plain">)</span>
 
 <span class="comment"># Paper-grade yield calculation</span>
-result = <span class="function">calculate_yield</span>(
-    <span class="param">grade</span>=<span class="string">"paper"</span>,
-    <span class="param">wood_species</span>=<span class="string">"spruce"</span>,
-    <span class="param">cooking_temp</span>=<span class="number">140</span>,
-    <span class="param">cooking_time_hr</span>=<span class="number">6.5</span>
-)
-<span class="builtin">print</span>(<span class="string">f"Yield: {result['yield_pct']:.1f}%"</span>)
-<span class="builtin">print</span>(<span class="string">f"BAT compliant: {result['bat_compliant']}"</span>)
+<span class="plain">result = </span><span class="function">calculate_yield</span><span class="plain">(</span>
+    <span class="param">grade</span><span class="plain">=</span><span class="string">"paper"</span><span class="plain">,</span>
+    <span class="param">wood_species</span><span class="plain">=</span><span class="string">"spruce"</span><span class="plain">,</span>
+    <span class="param">cooking_temp</span><span class="plain">=</span><span class="number">140</span><span class="plain">,</span>
+    <span class="param">cooking_time_hr</span><span class="plain">=</span><span class="number">6.5</span>
+<span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Yield: {result['yield_pct']:.1f}%"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"BAT compliant: {result['bat_compliant']}"</span><span class="plain">)</span>
 
 <span class="comment"># SO₂ recovery efficiency</span>
-recovery = <span class="function">so2_recovery</span>(
-    <span class="param">flue_gas_so2_ppm</span>=<span class="number">2500</span>,
-    <span class="param">scrubber_efficiency</span>=<span class="number">0.95</span>
-)
-<span class="builtin">print</span>(<span class="string">f"SO₂ recovered: {recovery['recovered_kg_hr']:.1f} kg/hr"</span>)
+<span class="plain">recovery = </span><span class="function">so2_recovery</span><span class="plain">(</span>
+    <span class="param">flue_gas_so2_ppm</span><span class="plain">=</span><span class="number">2500</span><span class="plain">,</span>
+    <span class="param">scrubber_efficiency</span><span class="plain">=</span><span class="number">0.95</span>
+<span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"SO₂ recovered: {recovery['recovered_kg_hr']:.1f} kg/hr"</span><span class="plain">)</span>
           </div>
         </div>
 
@@ -1033,51 +1057,51 @@ recovery = <span class="function">so2_recovery</span>(
             Universal Bleaching Optimizer — Multi-Stage Cost Minimization
           </div>
           <div class="code-block">
-<span class="keyword">from</span> pap_ai_era.bleaching <span class="keyword">import</span> run_optimization_from_config
+<span class="keyword">from</span> <span class="plain">pap_ai_era.bleaching</span> <span class="keyword">import</span> <span class="function">run_optimization_from_config</span>
 
-config = {
-    <span class="string">"stages"</span>: [
-        {
-            <span class="string">"name"</span>: <span class="string">"D0"</span>,
-            <span class="string">"chemicals"</span>: [
-                {<span class="string">"name"</span>: <span class="string">"ClO2"</span>, <span class="string">"min_dosage"</span>: <span class="number">5</span>,
-                 <span class="string">"max_dosage"</span>: <span class="number">30</span>, <span class="string">"cost"</span>: <span class="number">0.80</span>}
-            ]
-        },
-        {
-            <span class="string">"name"</span>: <span class="string">"EOP"</span>,
-            <span class="string">"chemicals"</span>: [
-                {<span class="string">"name"</span>: <span class="string">"NaOH"</span>, <span class="string">"min_dosage"</span>: <span class="number">5</span>,
-                 <span class="string">"max_dosage"</span>: <span class="number">25</span>, <span class="string">"cost"</span>: <span class="number">0.40</span>},
-                {<span class="string">"name"</span>: <span class="string">"H2O2"</span>, <span class="string">"min_dosage"</span>: <span class="number">2</span>,
-                 <span class="string">"max_dosage"</span>: <span class="number">15</span>, <span class="string">"cost"</span>: <span class="number">0.60</span>}
-            ]
-        },
-        {
-            <span class="string">"name"</span>: <span class="string">"D1"</span>,
-            <span class="string">"chemicals"</span>: [
-                {<span class="string">"name"</span>: <span class="string">"ClO2"</span>, <span class="string">"min_dosage"</span>: <span class="number">2</span>,
-                 <span class="string">"max_dosage"</span>: <span class="number">15</span>, <span class="string">"cost"</span>: <span class="number">0.80</span>}
-            ]
-        }
-    ],
-    <span class="string">"targets"</span>: {
-        <span class="string">"brightness"</span>: <span class="number">90.0</span>,
-        <span class="string">"kappa"</span>: <span class="number">2.0</span>,
-        <span class="string">"viscosity_min"</span>: <span class="number">800</span>
-    },
-    <span class="string">"input_pulp"</span>: {
-        <span class="string">"kappa"</span>: <span class="number">12.0</span>,
-        <span class="string">"brightness"</span>: <span class="number">35.0</span>,
-        <span class="string">"viscosity"</span>: <span class="number">1100</span>
-    }
-}
+<span class="plain">config = {</span>
+    <span class="string">"stages"</span><span class="plain">: [</span>
+        <span class="plain">{</span>
+            <span class="string">"name"</span><span class="plain">: </span><span class="string">"D0"</span><span class="plain">,</span>
+            <span class="string">"chemicals"</span><span class="plain">: [</span>
+                <span class="plain">{</span><span class="string">"name"</span><span class="plain">: </span><span class="string">"ClO2"</span><span class="plain">, </span><span class="string">"min_dosage"</span><span class="plain">: </span><span class="number">5</span><span class="plain">,</span>
+                 <span class="string">"max_dosage"</span><span class="plain">: </span><span class="number">30</span><span class="plain">, </span><span class="string">"cost"</span><span class="plain">: </span><span class="number">0.80</span><span class="plain">}</span>
+            <span class="plain">]</span>
+        <span class="plain">},</span>
+        <span class="plain">{</span>
+            <span class="string">"name"</span><span class="plain">: </span><span class="string">"EOP"</span><span class="plain">,</span>
+            <span class="string">"chemicals"</span><span class="plain">: [</span>
+                <span class="plain">{</span><span class="string">"name"</span><span class="plain">: </span><span class="string">"NaOH"</span><span class="plain">, </span><span class="string">"min_dosage"</span><span class="plain">: </span><span class="number">5</span><span class="plain">,</span>
+                 <span class="string">"max_dosage"</span><span class="plain">: </span><span class="number">25</span><span class="plain">, </span><span class="string">"cost"</span><span class="plain">: </span><span class="number">0.40</span><span class="plain">},</span>
+                <span class="plain">{</span><span class="string">"name"</span><span class="plain">: </span><span class="string">"H2O2"</span><span class="plain">, </span><span class="string">"min_dosage"</span><span class="plain">: </span><span class="number">2</span><span class="plain">,</span>
+                 <span class="string">"max_dosage"</span><span class="plain">: </span><span class="number">15</span><span class="plain">, </span><span class="string">"cost"</span><span class="plain">: </span><span class="number">0.60</span><span class="plain">}</span>
+            <span class="plain">]</span>
+        <span class="plain">},</span>
+        <span class="plain">{</span>
+            <span class="string">"name"</span><span class="plain">: </span><span class="string">"D1"</span><span class="plain">,</span>
+            <span class="string">"chemicals"</span><span class="plain">: [</span>
+                <span class="plain">{</span><span class="string">"name"</span><span class="plain">: </span><span class="string">"ClO2"</span><span class="plain">, </span><span class="string">"min_dosage"</span><span class="plain">: </span><span class="number">2</span><span class="plain">,</span>
+                 <span class="string">"max_dosage"</span><span class="plain">: </span><span class="number">15</span><span class="plain">, </span><span class="string">"cost"</span><span class="plain">: </span><span class="number">0.80</span><span class="plain">}</span>
+            <span class="plain">]</span>
+        <span class="plain">}</span>
+    <span class="plain">],</span>
+    <span class="string">"targets"</span><span class="plain">: {</span>
+        <span class="string">"brightness"</span><span class="plain">: </span><span class="number">90.0</span><span class="plain">,</span>
+        <span class="string">"kappa"</span><span class="plain">: </span><span class="number">2.0</span><span class="plain">,</span>
+        <span class="string">"viscosity_min"</span><span class="plain">: </span><span class="number">800</span>
+    <span class="plain">},</span>
+    <span class="string">"input_pulp"</span><span class="plain">: {</span>
+        <span class="string">"kappa"</span><span class="plain">: </span><span class="number">12.0</span><span class="plain">,</span>
+        <span class="string">"brightness"</span><span class="plain">: </span><span class="number">35.0</span><span class="plain">,</span>
+        <span class="string">"viscosity"</span><span class="plain">: </span><span class="number">1100</span>
+    <span class="plain">}</span>
+<span class="plain">}</span>
 
-result = <span class="function">run_optimization_from_config</span>(config)
+<span class="plain">result = </span><span class="function">run_optimization_from_config</span><span class="plain">(config)</span>
 
-<span class="builtin">print</span>(<span class="string">f"Optimal cost: ${result['total_cost']:.2f}/ton"</span>)
-<span class="builtin">print</span>(<span class="string">f"Achieved brightness: {result['brightness']:.1f} ISO"</span>)
-<span class="builtin">print</span>(<span class="string">f"Chemical dosages: {result['dosages']}"</span>)
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Optimal cost: ${result['total_cost']:.2f}/ton"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Achieved brightness: {result['brightness']:.1f} ISO"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Chemical dosages: {result['dosages']}"</span><span class="plain">)</span>
           </div>
         </div>
       </section>
@@ -1098,7 +1122,7 @@ result = <span class="function">run_optimization_from_config</span>(config)
                 <p class="card-subtitle">pap_ai_era.papermaking.machine</p>
               </div>
             </div>
-            <p class="card-desc">Fiber mass balance tracking across the entire machine, OEE (Overall Equipment Effectiveness) calculation, broke management and recirculation tracking, wire retention analysis, and dryer section steam economy optimization.</p>
+            <p class="card-desc">Fiber mass balance tracking across the entire machine, OEE calculation, broke management and recirculation tracking, wire retention analysis, and dryer section steam economy optimization.</p>
             <div class="card-functions">
               <span class="func-tag">calculate_oee()</span>
               <span class="func-tag">fiber_mass_balance()</span>
@@ -1143,7 +1167,7 @@ result = <span class="function">run_optimization_from_config</span>(config)
                 <p class="card-subtitle">pap_ai_era.papermaking.BulkModel</p>
               </div>
             </div>
-            <p class="card-desc">Physics-aware machine learning model predicting paper/board bulk (cm³/g) based on layer-wise furnish composition, pulp properties (CSF, SW/HW ratio), and pressing conditions. Supports multi-layer board structures.</p>
+            <p class="card-desc">Physics-aware machine learning model predicting paper/board bulk (cm³/g) based on layer-wise furnish composition, pulp properties (CSF, SW/HW ratio), and pressing conditions.</p>
             <div class="card-functions">
               <span class="func-tag">BulkModel(n_layers)</span>
               <span class="func-tag">BulkModel.train()</span>
@@ -1165,7 +1189,7 @@ result = <span class="function">run_optimization_from_config</span>(config)
                 <p class="card-subtitle">pap_ai_era.papermaking.variability_analysis</p>
               </div>
             </div>
-            <p class="card-desc">ABB-compliant Variance Partition Analysis decomposing reel variability into Machine Direction Long-term (MDL), Cross Direction (CD), and Machine Direction Short-term (MDS) with root-cause inference and 2-sigma normalized reporting.</p>
+            <p class="card-desc">ABB-compliant Variance Partition Analysis decomposing reel variability into MD Long-term, Cross Direction, and MD Short-term with root-cause inference and 2-sigma normalized reporting.</p>
             <div class="card-functions">
               <span class="func-tag">compute_vpa()</span>
               <span class="func-tag">decompose_variability()</span>
@@ -1182,7 +1206,7 @@ result = <span class="function">run_optimization_from_config</span>(config)
             <div class="card-header">
               <div class="card-icon papermaking">C</div>
               <div>
-                <h3 class="card-title">Coating & Finishing</h3>
+                <h3 class="card-title">Coating &amp; Finishing</h3>
                 <p class="card-subtitle">pap_ai_era.papermaking.coating</p>
               </div>
             </div>
@@ -1204,34 +1228,34 @@ result = <span class="function">run_optimization_from_config</span>(config)
         <div class="example-box" id="ex-machine">
           <div class="example-header">
             <span class="example-badge cyan">Example</span>
-            Machine Operations — OEE & Fiber Balance
+            Machine Operations — OEE &amp; Fiber Balance
           </div>
           <div class="code-block">
-<span class="keyword">from</span> pap_ai_era.papermaking.machine <span class="keyword">import</span> (
-    calculate_oee,
-    fiber_mass_balance,
-    track_broke
-)
+<span class="keyword">from</span> <span class="plain">pap_ai_era.papermaking.machine</span> <span class="keyword">import</span> <span class="plain">(</span>
+    <span class="function">calculate_oee</span><span class="plain">,</span>
+    <span class="function">fiber_mass_balance</span><span class="plain">,</span>
+    <span class="function">track_broke</span>
+<span class="plain">)</span>
 
 <span class="comment"># ── OEE Calculation ──</span>
-oee = <span class="function">calculate_oee</span>(
-    <span class="param">availability</span>=<span class="number">0.92</span>,
-    <span class="param">performance</span>=<span class="number">0.88</span>,
-    <span class="param">quality</span>=<span class="number">0.97</span>
-)
-<span class="builtin">print</span>(<span class="string">f"OEE: {oee['oee_pct']:.1f}%"</span>)
-<span class="builtin">print</span>(<span class="string">f"World-class threshold: 85%"</span>)
-<span class="builtin">print</span>(<span class="string">f"Status: {oee['rating']}"</span>)
+<span class="plain">oee = </span><span class="function">calculate_oee</span><span class="plain">(</span>
+    <span class="param">availability</span><span class="plain">=</span><span class="number">0.92</span><span class="plain">,</span>
+    <span class="param">performance</span><span class="plain">=</span><span class="number">0.88</span><span class="plain">,</span>
+    <span class="param">quality</span><span class="plain">=</span><span class="number">0.97</span>
+<span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"OEE: {oee['oee_pct']:.1f}%"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"World-class threshold: 85%"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Status: {oee['rating']}"</span><span class="plain">)</span>
 
 <span class="comment"># ── Fiber Mass Balance ──</span>
-balance = <span class="function">fiber_mass_balance</span>(
-    <span class="param">furnish_input_tpd</span>=<span class="number">500</span>,
-    <span class="param">consistency_pct</span>=<span class="number">3.5</span>,
-    <span class="param">first_pass_retention</span>=<span class="number">0.78</span>,
-    <span class="param">wire_retention</span>=<span class="number">0.92</span>
-)
-<span class="builtin">print</span>(<span class="string">f"Fiber to reel: {balance['reel_fiber_tpd']:.1f} tpd"</span>)
-<span class="builtin">print</span>(<span class="string">f"White water losses: {balance['ww_losses_tpd']:.1f} tpd"</span>)
+<span class="plain">balance = </span><span class="function">fiber_mass_balance</span><span class="plain">(</span>
+    <span class="param">furnish_input_tpd</span><span class="plain">=</span><span class="number">500</span><span class="plain">,</span>
+    <span class="param">consistency_pct</span><span class="plain">=</span><span class="number">3.5</span><span class="plain">,</span>
+    <span class="param">first_pass_retention</span><span class="plain">=</span><span class="number">0.78</span><span class="plain">,</span>
+    <span class="param">wire_retention</span><span class="plain">=</span><span class="number">0.92</span>
+<span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Fiber to reel: {balance['reel_fiber_tpd']:.1f} tpd"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"White water losses: {balance['ww_losses_tpd']:.1f} tpd"</span><span class="plain">)</span>
           </div>
         </div>
 
@@ -1242,31 +1266,31 @@ balance = <span class="function">fiber_mass_balance</span>(
             Wet End Chemistry — Dosing Optimization
           </div>
           <div class="code-block">
-<span class="keyword">from</span> pap_ai_era.papermaking.wet_end_chemistry <span class="keyword">import</span> (
-    optimize_dosing,
-    convert_gpl_to_lph,
-    predict_ash_retention
-)
+<span class="keyword">from</span> <span class="plain">pap_ai_era.papermaking.wet_end_chemistry</span> <span class="keyword">import</span> <span class="plain">(</span>
+    <span class="function">optimize_dosing</span><span class="plain">,</span>
+    <span class="function">convert_gpl_to_lph</span><span class="plain">,</span>
+    <span class="function">predict_ash_retention</span>
+<span class="plain">)</span>
 
 <span class="comment"># Optimize chemical dosing for a given furnish</span>
-furnish = {
-    <span class="string">"sw_pulp_pct"</span>: <span class="number">40</span>,
-    <span class="string">"hw_pulp_pct"</span>: <span class="number">30</span>,
-    <span class="string">"broke_pct"</span>: <span class="number">15</span>,
-    <span class="string">"filler_pct"</span>: <span class="number">15</span>,
-    <span class="string">"production_tpd"</span>: <span class="number">450</span>
-}
+<span class="plain">furnish = {</span>
+    <span class="string">"sw_pulp_pct"</span><span class="plain">: </span><span class="number">40</span><span class="plain">,</span>
+    <span class="string">"hw_pulp_pct"</span><span class="plain">: </span><span class="number">30</span><span class="plain">,</span>
+    <span class="string">"broke_pct"</span><span class="plain">: </span><span class="number">15</span><span class="plain">,</span>
+    <span class="string">"filler_pct"</span><span class="plain">: </span><span class="number">15</span><span class="plain">,</span>
+    <span class="string">"production_tpd"</span><span class="plain">: </span><span class="number">450</span>
+<span class="plain">}</span>
 
-dosing = <span class="function">optimize_dosing</span>(furnish)
-<span class="builtin">print</span>(<span class="string">f"Retention aid: {dosing['retention_aid_lph']:.1f} LPH"</span>)
-<span class="builtin">print</span>(<span class="string">"Sizing agent: {dosing['sizing_lph']:.1f} LPH"</span>)
+<span class="plain">dosing = </span><span class="function">optimize_dosing</span><span class="plain">(furnish)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Retention aid: {dosing['retention_aid_lph']:.1f} LPH"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Sizing agent: {dosing['sizing_lph']:.1f} LPH"</span><span class="plain">)</span>
 
 <span class="comment"># Convert concentration to flow rate</span>
-flow = <span class="function">convert_gpl_to_lph</span>(
-    <span class="param">concentration_gpl</span>=<span class="number">5.0</span>,
-    <span class="param">target_kg_hr</span>=<span class="number">12.5</span>
-)
-<span class="builtin">print</span>(<span class="string">f"Pump setting: {flow:.1f} LPH"</span>)
+<span class="plain">flow = </span><span class="function">convert_gpl_to_lph</span><span class="plain">(</span>
+    <span class="param">concentration_gpl</span><span class="plain">=</span><span class="number">5.0</span><span class="plain">,</span>
+    <span class="param">target_kg_hr</span><span class="plain">=</span><span class="number">12.5</span>
+<span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Pump setting: {flow:.1f} LPH"</span><span class="plain">)</span>
           </div>
         </div>
 
@@ -1277,36 +1301,36 @@ flow = <span class="function">convert_gpl_to_lph</span>(
             Bulk Prediction — Multi-Layer Board Structure
           </div>
           <div class="code-block">
-<span class="keyword">from</span> pap_ai_era.papermaking <span class="keyword">import</span> BulkModel
+<span class="keyword">from</span> <span class="plain">pap_ai_era.papermaking</span> <span class="keyword">import</span> <span class="class">BulkModel</span>
 
 <span class="comment"># Define 3-layer board structure</span>
-layers = [
-    {<span class="string">"gsm"</span>: <span class="number">40</span>,  <span class="string">"sw_ratio"</span>: <span class="number">0.95</span>, <span class="string">"csf"</span>: <span class="number">580</span>},  <span class="comment"># Top</span>
-    {<span class="string">"gsm"</span>: <span class="number">180</span>, <span class="string">"sw_ratio"</span>: <span class="number">0.10</span>, <span class="string">"csf"</span>: <span class="number">380</span>},  <span class="comment"># Middle</span>
-    {<span class="string">"gsm"</span>: <span class="number">50</span>,  <span class="string">"sw_ratio"</span>: <span class="number">0.85</span>, <span class="string">"csf"</span>: <span class="number">520</span>},  <span class="comment"># Bottom</span>
-]
-process = {
-    <span class="string">"nip_load"</span>: <span class="number">65</span>,      <span class="comment"># kN/m</span>
-    <span class="string">"n_nips"</span>: <span class="number">3</span>,
-    <span class="string">"press_temp"</span>: <span class="number">85</span>   <span class="comment"># °C</span>
-}
+<span class="plain">layers = [</span>
+    <span class="plain">{</span><span class="string">"gsm"</span><span class="plain">: </span><span class="number">40</span><span class="plain">,  </span><span class="string">"sw_ratio"</span><span class="plain">: </span><span class="number">0.95</span><span class="plain">, </span><span class="string">"csf"</span><span class="plain">: </span><span class="number">580</span><span class="plain">},  </span><span class="comment"># Top</span>
+    <span class="plain">{</span><span class="string">"gsm"</span><span class="plain">: </span><span class="number">180</span><span class="plain">, </span><span class="string">"sw_ratio"</span><span class="plain">: </span><span class="number">0.10</span><span class="plain">, </span><span class="string">"csf"</span><span class="plain">: </span><span class="number">380</span><span class="plain">},  </span><span class="comment"># Middle</span>
+    <span class="plain">{</span><span class="string">"gsm"</span><span class="plain">: </span><span class="number">50</span><span class="plain">,  </span><span class="string">"sw_ratio"</span><span class="plain">: </span><span class="number">0.85</span><span class="plain">, </span><span class="string">"csf"</span><span class="plain">: </span><span class="number">520</span><span class="plain">},  </span><span class="comment"># Bottom</span>
+<span class="plain">]</span>
+<span class="plain">process = {</span>
+    <span class="string">"nip_load"</span><span class="plain">: </span><span class="number">65</span><span class="plain">,      </span><span class="comment"># kN/m</span>
+    <span class="string">"n_nips"</span><span class="plain">: </span><span class="number">3</span><span class="plain">,</span>
+    <span class="string">"press_temp"</span><span class="plain">: </span><span class="number">85</span><span class="plain">   </span><span class="comment"># °C</span>
+<span class="plain">}</span>
 
 <span class="comment"># Initialize model for 3-layer structure</span>
-model = BulkModel(<span class="param">n_layers</span>=<span class="number">3</span>)
+<span class="plain">model = </span><span class="class">BulkModel</span><span class="plain">(</span><span class="param">n_layers</span><span class="plain">=</span><span class="number">3</span><span class="plain">)</span>
 
-<span class="comment"># Train on historical mill data (optional step)</span>
+<span class="comment"># Train on historical mill data (optional)</span>
 <span class="comment"># model.train(historical_dataframe)</span>
 
 <span class="comment"># Predict bulk for current configuration</span>
-predicted_bulk = model.<span class="function">predict</span>(layers, process)
-<span class="builtin">print</span>(<span class="string">f"Predicted Bulk: {predicted_bulk:.3f} cm³/g"</span>)
+<span class="plain">predicted_bulk = model.</span><span class="function">predict</span><span class="plain">(layers, process)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Predicted Bulk: {predicted_bulk:.3f} cm³/g"</span><span class="plain">)</span>
 
 <span class="comment"># Sensitivity: how does nip load affect bulk?</span>
-sensitivity = model.<span class="function">sensitivity_analysis</span>(
-    <span class="param">parameter</span>=<span class="string">"nip_load"</span>,
-    <span class="param">range_min</span>=<span class="number">40</span>,
-    <span class="param">range_max</span>=<span class="number">100</span>
-)
+<span class="plain">sensitivity = model.</span><span class="function">sensitivity_analysis</span><span class="plain">(</span>
+    <span class="param">parameter</span><span class="plain">=</span><span class="string">"nip_load"</span><span class="plain">,</span>
+    <span class="param">range_min</span><span class="plain">=</span><span class="number">40</span><span class="plain">,</span>
+    <span class="param">range_max</span><span class="plain">=</span><span class="number">100</span>
+<span class="plain">)</span>
           </div>
         </div>
 
@@ -1317,31 +1341,31 @@ sensitivity = model.<span class="function">sensitivity_analysis</span>(
             Variance Partition Analysis — 2-Sigma Decomposition
           </div>
           <div class="code-block">
-<span class="keyword">import</span> numpy <span class="keyword">as</span> np
-<span class="keyword">from</span> pap_ai_era.papermaking.variability_analysis <span class="keyword">import</span> (
-    compute_vpa,
-    identify_root_cause
-)
+<span class="keyword">import</span> <span class="plain">numpy </span><span class="keyword">as</span> <span class="plain">np</span>
+<span class="keyword">from</span> <span class="plain">pap_ai_era.papermaking.variability_analysis</span> <span class="keyword">import</span> <span class="plain">(</span>
+    <span class="function">compute_vpa</span><span class="plain">,</span>
+    <span class="function">identify_root_cause</span>
+<span class="plain">)</span>
 
 <span class="comment"># Simulated scanner data: 50 scans × 600 CD boxes</span>
-np.random.seed(<span class="number">42</span>)
-data = np.random.normal(<span class="param">loc</span>=<span class="number">50.0</span>, <span class="param">scale</span>=<span class="number">1.5</span>, <span class="param">size</span>=(<span class="number">50</span>, <span class="number">600</span>))
+<span class="plain">np.random.seed(</span><span class="number">42</span><span class="plain">)</span>
+<span class="plain">data = np.random.normal(</span><span class="param">loc</span><span class="plain">=</span><span class="number">50.0</span><span class="plain">, </span><span class="param">scale</span><span class="plain">=</span><span class="number">1.5</span><span class="plain">, </span><span class="param">size</span><span class="plain">=(</span><span class="number">50</span><span class="plain">, </span><span class="number">600</span><span class="plain">))</span>
 
 <span class="comment"># Add CD profile bias (simulating a headbox issue)</span>
-data[:, <span class="number">200</span>:<span class="number">400</span>] += <span class="number">2.0</span>
+<span class="plain">data[:, </span><span class="number">200</span><span class="plain">:</span><span class="number">400</span><span class="plain">] += </span><span class="number">2.0</span>
 
 <span class="comment"># Compute VPA report</span>
-vpa = <span class="function">compute_vpa</span>(data, <span class="param">process_average</span>=<span class="number">50.0</span>)
+<span class="plain">vpa = </span><span class="function">compute_vpa</span><span class="plain">(data, </span><span class="param">process_average</span><span class="plain">=</span><span class="number">50.0</span><span class="plain">)</span>
 
-<span class="builtin">print</span>(<span class="string">f"Total 2σ Variability: {vpa.normalised['TOT']:.2f}%"</span>)
-<span class="builtin">print</span>(<span class="string">f"MD Long-term (MDL):   {vpa.normalised['MDL']:.2f}%"</span>)
-<span class="builtin">print</span>(<span class="string">f"Cross Direction (CD):  {vpa.normalised['CD']:.2f}%"</span>)
-<span class="builtin">print</span>(<span class="string">f"MD Short-term (MDS):   {vpa.normalised['MDS']:.2f}%"</span>)
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Total 2σ Variability: {vpa.normalised['TOT']:.2f}%"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"MD Long-term (MDL):   {vpa.normalised['MDL']:.2f}%"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Cross Direction (CD):  {vpa.normalised['CD']:.2f}%"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"MD Short-term (MDS):   {vpa.normalised['MDS']:.2f}%"</span><span class="plain">)</span>
 
 <span class="comment"># Root cause inference</span>
-cause = <span class="function">identify_root_cause</span>(vpa)
-<span class="builtin">print</span>(<span class="string">f"Primary issue: {cause['problem']}"</span>)
-<span class="builtin">print</span>(<span class="string">f"Recommendation: {cause['action']}"</span>)
+<span class="plain">cause = </span><span class="function">identify_root_cause</span><span class="plain">(vpa)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Primary issue: {cause['problem']}"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Recommendation: {cause['action']}"</span><span class="plain">)</span>
           </div>
         </div>
       </section>
@@ -1380,11 +1404,11 @@ cause = <span class="function">identify_root_cause</span>(vpa)
             <div class="card-header">
               <div class="card-icon sustainability">W</div>
               <div>
-                <h3 class="card-title">Water & Wastewater</h3>
+                <h3 class="card-title">Water &amp; Wastewater</h3>
                 <p class="card-subtitle">pap_ai_era.sustainability.wastewater</p>
               </div>
             </div>
-            <p class="card-desc">Loop closure analysis for water circuits, explicit cooling-water vs contaminated-water accounting, wastewater treatment efficiency modeling, and specific water consumption benchmarking (m³/ton product).</p>
+            <p class="card-desc">Loop closure analysis for water circuits, explicit cooling-water vs contaminated-water accounting, wastewater treatment efficiency modeling, and specific water consumption benchmarking.</p>
             <div class="card-functions">
               <span class="func-tag">analyze_loop_closure()</span>
               <span class="func-tag">water_balance()</span>
@@ -1406,7 +1430,7 @@ cause = <span class="function">identify_root_cause</span>(vpa)
                 <p class="card-subtitle">pap_ai_era.sustainability.ems</p>
               </div>
             </div>
-            <p class="card-desc">ISO 14001 compliance grading across all EMS elements, solid waste footprint calculation (Ash + Sludge + Rejects), carbon accounting, and automated sustainability KPI dashboards for annual reporting.</p>
+            <p class="card-desc">ISO 14001 compliance grading across all EMS elements, solid waste footprint calculation (Ash + Sludge + Rejects), carbon accounting, and automated sustainability KPI dashboards.</p>
             <div class="card-functions">
               <span class="func-tag">iso14001_grade()</span>
               <span class="func-tag">calculate_waste_footprint()</span>
@@ -1428,35 +1452,35 @@ cause = <span class="function">identify_root_cause</span>(vpa)
             Emissions — BAT Compliance Check
           </div>
           <div class="code-block">
-<span class="keyword">from</span> pap_ai_era.sustainability.emissions <span class="keyword">import</span> (
-    calculate_water_loads,
-    estimate_air_emissions,
-    check_bat_limits
-)
+<span class="keyword">from</span> <span class="plain">pap_ai_era.sustainability.emissions</span> <span class="keyword">import</span> <span class="plain">(</span>
+    <span class="function">calculate_water_loads</span><span class="plain">,</span>
+    <span class="function">estimate_air_emissions</span><span class="plain">,</span>
+    <span class="function">check_bat_limits</span>
+<span class="plain">)</span>
 
 <span class="comment"># ── Water emissions ──</span>
-water = <span class="function">calculate_water_loads</span>(
-    <span class="param">flow_m3_day</span>=<span class="number">15000</span>,
-    <span class="param">bod_mgl</span>=<span class="number">18.5</span>,
-    <span class="param">cod_mgl</span>=<span class="number">85.0</span>,
-    <span class="param">tss_mgl</span>=<span class="number">12.0</span>,
-    <span class="param">production_tpd</span>=<span class="number">800</span>
-)
-<span class="builtin">print</span>(<span class="string">f"COD load: {water['cod_kg_ton']:.2f} kg/ton product"</span>)
+<span class="plain">water = </span><span class="function">calculate_water_loads</span><span class="plain">(</span>
+    <span class="param">flow_m3_day</span><span class="plain">=</span><span class="number">15000</span><span class="plain">,</span>
+    <span class="param">bod_mgl</span><span class="plain">=</span><span class="number">18.5</span><span class="plain">,</span>
+    <span class="param">cod_mgl</span><span class="plain">=</span><span class="number">85.0</span><span class="plain">,</span>
+    <span class="param">tss_mgl</span><span class="plain">=</span><span class="number">12.0</span><span class="plain">,</span>
+    <span class="param">production_tpd</span><span class="plain">=</span><span class="number">800</span>
+<span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"COD load: {water['cod_kg_ton']:.2f} kg/ton product"</span><span class="plain">)</span>
 
 <span class="comment"># ── Air emissions ──</span>
-air = <span class="function">estimate_air_emissions</span>(
-    <span class="param">recovery_boiler</span>={<span class="string">"so2_ppm"</span>: <span class="number">120</span>, <span class="string">"nox_ppm"</span>: <span class="number">180</span>},
-    <span class="param">lime_kiln</span>={<span class="string">"dust_mgNm3"</span>: <span class="number">25</span>, <span class="string">"so2_ppm"</span>: <span class="number">40</span>},
-    <span class="param">production_tpd</span>=<span class="number">800</span>
-)
+<span class="plain">air = </span><span class="function">estimate_air_emissions</span><span class="plain">(</span>
+    <span class="param">recovery_boiler</span><span class="plain">={</span><span class="string">"so2_ppm"</span><span class="plain">: </span><span class="number">120</span><span class="plain">, </span><span class="string">"nox_ppm"</span><span class="plain">: </span><span class="number">180</span><span class="plain">},</span>
+    <span class="param">lime_kiln</span><span class="plain">={</span><span class="string">"dust_mgNm3"</span><span class="plain">: </span><span class="number">25</span><span class="plain">, </span><span class="string">"so2_ppm"</span><span class="plain">: </span><span class="number">40</span><span class="plain">},</span>
+    <span class="param">production_tpd</span><span class="plain">=</span><span class="number">800</span>
+<span class="plain">)</span>
 
 <span class="comment"># ── BAT compliance ──</span>
-compliance = <span class="function">check_bat_limits</span>(water, air, <span class="param">process_type</span>=<span class="string">"kraft"</span>)
-<span class="builtin">print</span>(<span class="string">f"Overall BAT status: {compliance['status']}"</span>)
-<span class="keyword">for</span> param, result <span class="keyword">in</span> compliance[<span class="string">"details"</span>].items():
-    status = <span class="string">"✅"</span> <span class="keyword">if</span> result[<span class="string">"compliant"</span>] <span class="keyword">else</span> <span class="string">"❌"</span>
-    <span class="builtin">print</span>(<span class="string">f"  {status} {param}: {result['value']} (BAT limit: {result['bat_limit']})"</span>)
+<span class="plain">compliance = </span><span class="function">check_bat_limits</span><span class="plain">(water, air, </span><span class="param">process_type</span><span class="plain">=</span><span class="string">"kraft"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Overall BAT status: {compliance['status']}"</span><span class="plain">)</span>
+<span class="keyword">for</span> <span class="plain">param, result </span><span class="keyword">in</span> <span class="plain">compliance[</span><span class="string">"details"</span><span class="plain">].items():</span>
+    <span class="plain">status = </span><span class="string">"✅"</span> <span class="keyword">if</span> <span class="plain">result[</span><span class="string">"compliant"</span><span class="plain">] </span><span class="keyword">else</span> <span class="string">"❌"</span>
+    <span class="builtin">print</span><span class="plain">(</span><span class="string">f"  {status} {param}: {result['value']} (BAT: {result['bat_limit']})"</span><span class="plain">)</span>
           </div>
         </div>
       </section>
@@ -1534,7 +1558,7 @@ compliance = <span class="function">check_bat_limits</span>(water, air, <span cl
                 <p class="card-subtitle">pap_ai_era.energy.boiler_optimizer</p>
               </div>
             </div>
-            <p class="card-desc">Physics-aware hybrid model maximizing thermal efficiency while respecting O₂%, pressure, temperature, and emission constraints. Supports multi-fuel scenarios (black liquor + biomass + fossil).</p>
+            <p class="card-desc">Physics-aware hybrid model maximizing thermal efficiency while respecting O₂%, pressure, temperature, and emission constraints. Supports multi-fuel scenarios.</p>
             <div class="card-functions">
               <span class="func-tag">Boiler(name, capacity)</span>
               <span class="func-tag">BoilerOptimizer.optimize()</span>
@@ -1572,38 +1596,38 @@ compliance = <span class="function">check_bat_limits</span>(water, air, <span cl
         <!-- Boiler Example -->
         <div class="example-box" id="ex-boiler">
           <div class="example-header">
-            <span class="example-badge orange">Example</span>
+            <span class="example-badge rose">Example</span>
             Boiler Digital Twin — Efficiency Optimization
           </div>
           <div class="code-block">
-<span class="keyword">from</span> pap_ai_era.energy.boiler_optimizer <span class="keyword">import</span> (
-    Boiler,
-    BoilerOptimizer
-)
+<span class="keyword">from</span> <span class="plain">pap_ai_era.energy.boiler_optimizer</span> <span class="keyword">import</span> <span class="plain">(</span>
+    <span class="class">Boiler</span><span class="plain">,</span>
+    <span class="class">BoilerOptimizer</span>
+<span class="plain">)</span>
 
 <span class="comment"># Define boiler unit</span>
-boiler = Boiler(
-    <span class="param">name</span>=<span class="string">"RB-1"</span>,
-    <span class="param">capacity_tph</span>=<span class="number">150</span>,
-    <span class="param">fuel_type</span>=<span class="string">"black_liquor"</span>,
-    <span class="param">design_pressure_bar</span>=<span class="number">65</span>
-)
+<span class="plain">boiler = </span><span class="class">Boiler</span><span class="plain">(</span>
+    <span class="param">name</span><span class="plain">=</span><span class="string">"RB-1"</span><span class="plain">,</span>
+    <span class="param">capacity_tph</span><span class="plain">=</span><span class="number">150</span><span class="plain">,</span>
+    <span class="param">fuel_type</span><span class="plain">=</span><span class="string">"black_liquor"</span><span class="plain">,</span>
+    <span class="param">design_pressure_bar</span><span class="plain">=</span><span class="number">65</span>
+<span class="plain">)</span>
 
 <span class="comment"># Run optimization</span>
-optimizer = BoilerOptimizer(boiler)
-result = optimizer.<span class="function">optimize</span>(
-    <span class="param">constraints</span>={
-        <span class="string">"o2_min_pct"</span>: <span class="number">2.0</span>,
-        <span class="string">"o2_max_pct"</span>: <span class="number">5.0</span>,
-        <span class="string">"max_pressure_bar"</span>: <span class="number">62</span>,
-        <span class="string">"max_temp_c"</span>: <span class="number">480</span>
-    },
-    <span class="param">objective</span>=<span class="string">"maximize_efficiency"</span>
-)
+<span class="plain">optimizer = </span><span class="class">BoilerOptimizer</span><span class="plain">(boiler)</span>
+<span class="plain">result = optimizer.</span><span class="function">optimize</span><span class="plain">(</span>
+    <span class="param">constraints</span><span class="plain">={</span>
+        <span class="string">"o2_min_pct"</span><span class="plain">: </span><span class="number">2.0</span><span class="plain">,</span>
+        <span class="string">"o2_max_pct"</span><span class="plain">: </span><span class="number">5.0</span><span class="plain">,</span>
+        <span class="string">"max_pressure_bar"</span><span class="plain">: </span><span class="number">62</span><span class="plain">,</span>
+        <span class="string">"max_temp_c"</span><span class="plain">: </span><span class="number">480</span>
+    <span class="plain">},</span>
+    <span class="param">objective</span><span class="plain">=</span><span class="string">"maximize_efficiency"</span>
+<span class="plain">)</span>
 
-<span class="builtin">print</span>(<span class="string">f"Optimal efficiency: {result['efficiency']:.1f}%"</span>)
-<span class="builtin">print</span>(<span class="string">f"Optimal O₂ setpoint: {result['o2_pct']:.2f}%"</span>)
-<span class="builtin">print</span>(<span class="string">f"Fuel savings: {result['savings_pct']:.1f}%"</span>)
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Optimal efficiency: {result['efficiency']:.1f}%"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Optimal O₂ setpoint: {result['o2_pct']:.2f}%"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Fuel savings: {result['savings_pct']:.1f}%"</span><span class="plain">)</span>
           </div>
         </div>
 
@@ -1611,26 +1635,26 @@ result = optimizer.<span class="function">optimize</span>(
         <div class="example-box" id="ex-hood">
           <div class="example-header">
             <span class="example-badge cyan">Example</span>
-            Hood Energy Optimizer — Steam & Airflow Balance
+            Hood Energy Optimizer — Steam &amp; Airflow Balance
           </div>
           <div class="code-block">
-<span class="keyword">from</span> pap_ai_era.papermaking.hood_optimizer <span class="keyword">import</span> (
-    run_hood_optimization
-)
+<span class="keyword">from</span> <span class="plain">pap_ai_era.papermaking.hood_optimizer</span> <span class="keyword">import</span> <span class="plain">(</span>
+    <span class="function">run_hood_optimization</span>
+<span class="plain">)</span>
 
-result = <span class="function">run_hood_optimization</span>(
-    <span class="param">production_tpd</span>=<span class="number">600</span>,
-    <span class="param">inlet_dryness_pct</span>=<span class="number">42</span>,
-    <span class="param">target_dryness_pct</span>=<span class="number">92</span>,
-    <span class="param">hood_type</span>=<span class="string">"closed"</span>,
-    <span class="param">steam_pressure_bar</span>=<span class="number">4.5</span>,
-    <span class="param">ambient_temp_c</span>=<span class="number">30</span>
-)
+<span class="plain">result = </span><span class="function">run_hood_optimization</span><span class="plain">(</span>
+    <span class="param">production_tpd</span><span class="plain">=</span><span class="number">600</span><span class="plain">,</span>
+    <span class="param">inlet_dryness_pct</span><span class="plain">=</span><span class="number">42</span><span class="plain">,</span>
+    <span class="param">target_dryness_pct</span><span class="plain">=</span><span class="number">92</span><span class="plain">,</span>
+    <span class="param">hood_type</span><span class="plain">=</span><span class="string">"closed"</span><span class="plain">,</span>
+    <span class="param">steam_pressure_bar</span><span class="plain">=</span><span class="number">4.5</span><span class="plain">,</span>
+    <span class="param">ambient_temp_c</span><span class="plain">=</span><span class="number">30</span>
+<span class="plain">)</span>
 
-<span class="builtin">print</span>(<span class="string">f"Evaporation load: {result['evap_kg_hr']:.0f} kg/hr"</span>)
-<span class="builtin">print</span>(<span class="string">f"Optimal supply air: {result['supply_air_m3h']:.0f} m³/h"</span>)
-<span class="builtin">print</span>(<span class="string">f"Steam consumption: {result['steam_tph']:.2f} tph"</span>)
-<span class="builtin">print</span>(<span class="string">f"Energy savings vs baseline: {result['savings_pct']:.1f}%"</span>)
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Evaporation load: {result['evap_kg_hr']:.0f} kg/hr"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Optimal supply air: {result['supply_air_m3h']:.0f} m³/h"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Steam consumption: {result['steam_tph']:.2f} tph"</span><span class="plain">)</span>
+<span class="builtin">print</span><span class="plain">(</span><span class="string">f"Energy savings vs baseline: {result['savings_pct']:.1f}%"</span><span class="plain">)</span>
           </div>
         </div>
       </section>
@@ -1642,14 +1666,14 @@ result = <span class="function">run_hood_optimization</span>(
           <div class="ref-col">
             <h4>🔧 Core Imports</h4>
             <div class="mini-code">
-<span class="keyword" style="color:#ff7b72;">from</span> pap_ai_era.pulping <span class="keyword" style="color:#ff7b72;">import</span> kraft
-<span class="keyword" style="color:#ff7b72;">from</span> pap_ai_era.pulping <span class="keyword" style="color:#ff7b72;">import</span> sulphite
-<span class="keyword" style="color:#ff7b72;">from</span> pap_ai_era.pulping <span class="keyword" style="color:#ff7b72;">import</span> mechanical
-<span class="keyword" style="color:#ff7b72;">from</span> pap_ai_era.bleaching <span class="keyword" style="color:#ff7b72;">import</span> *
-<span class="keyword" style="color:#ff7b72;">from</span> pap_ai_era.papermaking <span class="keyword" style="color:#ff7b72;">import</span> *
-<span class="keyword" style="color:#ff7b72;">from</span> pap_ai_era.sustainability <span class="keyword" style="color:#ff7b72;">import</span> *
-<span class="keyword" style="color:#ff7b72;">from</span> pap_ai_era.optimization_models <span class="keyword" style="color:#ff7b72;">import</span> *
-<span class="keyword" style="color:#ff7b72;">from</span> pap_ai_era.energy <span class="keyword" style="color:#ff7b72;">import</span> *
+<span class="keyword" style="color:#ff6b9d;">from</span> <span style="color:#e8eaf0;">pap_ai_era.pulping</span> <span class="keyword" style="color:#ff6b9d;">import</span> <span style="color:#e8eaf0;">kraft</span>
+<span class="keyword" style="color:#ff6b9d;">from</span> <span style="color:#e8eaf0;">pap_ai_era.pulping</span> <span class="keyword" style="color:#ff6b9d;">import</span> <span style="color:#e8eaf0;">sulphite</span>
+<span class="keyword" style="color:#ff6b9d;">from</span> <span style="color:#e8eaf0;">pap_ai_era.pulping</span> <span class="keyword" style="color:#ff6b9d;">import</span> <span style="color:#e8eaf0;">mechanical</span>
+<span class="keyword" style="color:#ff6b9d;">from</span> <span style="color:#e8eaf0;">pap_ai_era.bleaching</span> <span class="keyword" style="color:#ff6b9d;">import</span> <span style="color:#e8eaf0;">*</span>
+<span class="keyword" style="color:#ff6b9d;">from</span> <span style="color:#e8eaf0;">pap_ai_era.papermaking</span> <span class="keyword" style="color:#ff6b9d;">import</span> <span style="color:#e8eaf0;">*</span>
+<span class="keyword" style="color:#ff6b9d;">from</span> <span style="color:#e8eaf0;">pap_ai_era.sustainability</span> <span class="keyword" style="color:#ff6b9d;">import</span> <span style="color:#e8eaf0;">*</span>
+<span class="keyword" style="color:#ff6b9d;">from</span> <span style="color:#e8eaf0;">pap_ai_era.optimization_models</span> <span class="keyword" style="color:#ff6b9d;">import</span> <span style="color:#e8eaf0;">*</span>
+<span class="keyword" style="color:#ff6b9d;">from</span> <span style="color:#e8eaf0;">pap_ai_era.energy</span> <span class="keyword" style="color:#ff6b9d;">import</span> <span style="color:#e8eaf0;">*</span>
             </div>
           </div>
           <div class="ref-col">
@@ -1717,12 +1741,11 @@ result = <span class="function">run_hood_optimization</span>(
       </div>
     </div>
     <div class="footer-bottom">
-      © 2024 PapAiEra Library &nbsp;|&nbsp; MIT License &nbsp;|&nbsp; Built for Industry 4.0 in Pulp & Paper
+      © 2024 PapAiEra Library &nbsp;|&nbsp; MIT License &nbsp;|&nbsp; Built for Industry 4.0 in Pulp &amp; Paper
     </div>
   </footer>
 
   <script>
-    // Scroll spy for active navigation
     document.addEventListener('DOMContentLoaded', function() {
       const sections = document.querySelectorAll('section[id], article[id]');
       const navLinks = document.querySelectorAll('.sidebar-nav a, header nav a');
@@ -1745,7 +1768,6 @@ result = <span class="function">run_hood_optimization</span>(
         });
       });
 
-      // Smooth scroll for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           e.preventDefault();
