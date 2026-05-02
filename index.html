@@ -1,744 +1,712 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PapAiEra Documentation | Modern Pulp & Paper Optimization Library</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #0f766e;
-            --background: #f8fafc;
-            --surface: #ffffff;
-            --text: #1e293b;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-            --code-bg: #1e293b;
-            --code-text: #e2e8f0;
-            --success: #16a34a;
-            --warning: #ca8a04;
-            --danger: #dc2626;
-            --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-            --radius: 12px;
-            --radius-sm: 8px;
-            --transition: all 0.2s ease;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--background);
-            color: var(--text);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: white;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .logo span {
-            font-weight: 300;
-            opacity: 0.9;
-        }
-
-        .header-actions {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.6rem 1.2rem;
-            border-radius: var(--radius-sm);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: white;
-            color: var(--primary);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        /* Layout */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 2rem;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            position: sticky;
-            top: 100px;
-            height: fit-content;
-            background: var(--surface);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
-
-        .sidebar h3 {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .nav-list {
-            list-style: none;
-        }
-
-        .nav-list li {
-            margin-bottom: 0.25rem;
-        }
-
-        .nav-list a {
-            display: block;
-            padding: 0.5rem 0.75rem;
-            border-radius: var(--radius-sm);
-            color: var(--text);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            border-left: 3px solid transparent;
-        }
-
-        .nav-list a:hover,
-        .nav-list a.active {
-            background: #eff6ff;
-            color: var(--primary);
-            border-left-color: var(--primary);
-        }
-
-        .nav-list .submenu {
-            list-style: none;
-            padding-left: 1rem;
-            margin-top: 0.25rem;
-        }
-
-        .nav-list .submenu a {
-            font-size: 0.85rem;
-            padding: 0.35rem 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .nav-list .submenu a:hover {
-            color: var(--primary);
-        }
-
-        /* Main Content */
-        main {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        /* Cards */
-        .card {
-            background: var(--surface);
-            border-radius: var(--radius);
-            padding: 2rem;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1.25rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .card-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .card h2 {
-            font-size: 1.4rem;
-            font-weight: 600;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-
-        /* Module Grid */
-        .module-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .module-card {
-            background: #f8fafc;
-            border-radius: var(--radius-sm);
-            padding: 1.25rem;
-            border: 1px solid var(--border);
-            transition: var(--transition);
-        }
-
-        .module-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
-        }
-
-        .module-card h4 {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            color: var(--text);
-        }
-
-        .module-card h4::before {
-            content: "•";
-            color: var(--primary);
-            font-size: 1.5rem;
-            line-height: 0.5;
-        }
-
-        .module-card ul {
-            list-style: none;
-            padding-left: 1.25rem;
-        }
-
-        .module-card li {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 0.25rem;
-            position: relative;
-        }
-
-        .module-card li::before {
-            content: "→";
-            position: absolute;
-            left: -1.25rem;
-            color: var(--secondary);
-            font-size: 0.8rem;
-        }
-
-        /* Code Blocks */
-        .code-block {
-            background: var(--code-bg);
-            border-radius: var(--radius-sm);
-            padding: 1.25rem;
-            margin: 1rem 0;
-            overflow-x: auto;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .code-block code {
-            color: var(--code-text);
-        }
-
-        .code-block .comment { color: #94a3b8; }
-        .code-block .keyword { color: #c084fc; }
-        .code-block .string { color: #86efac; }
-        .code-block .function { color: #60a5fa; }
-        .code-block .number { color: #fbbf24; }
-
-        /* Feature List */
-        .features {
-            display: grid;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-
-        .feature {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-        }
-
-        .feature-icon {
-            width: 24px;
-            height: 24px;
-            background: var(--success);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.8rem;
-            flex-shrink: 0;
-            margin-top: 0.2rem;
-        }
-
-        .feature-text {
-            font-size: 0.95rem;
-        }
-
-        /* API Reference */
-        .api-section {
-            margin: 1.5rem 0;
-        }
-
-        .api-function {
-            background: #f1f5f9;
-            border-left: 4px solid var(--primary);
-            padding: 1rem 1.25rem;
-            margin: 1rem 0;
-            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-        }
-
-        .api-function h4 {
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .api-function p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .api-params {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .api-params code {
-            background: #e2e8f0;
-            padding: 0.15rem 0.4rem;
-            border-radius: 4px;
-            font-family: 'JetBrains Mono', monospace;
-            color: var(--text);
-        }
-
-        /* Badges */
-        .badge {
-            display: inline-block;
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .badge-primary { background: #dbeafe; color: var(--primary-dark); }
-        .badge-success { background: #dcfce7; color: #166534; }
-        .badge-warning { background: #fef3c7; color: #92400e; }
-
-        /* Installation */
-        .install-box {
-            background: linear-gradient(135deg, #1e293b, #334155);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            margin: 1rem 0;
-        }
-
-        .install-box code {
-            color: #86efac;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.1rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            padding: 2rem;
-            margin-top: 3rem;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
-            .sidebar {
-                position: static;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .card {
-                padding: 1.5rem;
-            }
-        }
-
-        /* Search */
-        .search-box {
-            position: relative;
-            margin: 1rem 0;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 0.75rem 1rem 0.75rem 2.5rem;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            font-size: 0.9rem;
-            background: var(--surface);
-        }
-
-        .search-box::before {
-            content: "🔍";
-            position: absolute;
-            left: 0.75rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 0.9rem;
-        }
-
-        /* Table of Contents */
-        .toc {
-            background: #f8fafc;
-            border-radius: var(--radius-sm);
-            padding: 1rem;
-            margin: 1rem 0;
-        }
-
-        .toc h4 {
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-            color: var(--text);
-        }
-
-        .toc ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .toc li {
-            margin-bottom: 0.3rem;
-        }
-
-        .toc a {
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .toc a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PapAiEra Documentation | Pulp & Paper Industry AI Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #0ea5e9;
+      --accent: #8b5cf6;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --dark: #0f172a;
+      --dark-800: #1e293b;
+      --dark-700: #334155;
+      --dark-600: #475569;
+      --light: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-300: #cbd5e1;
+      --gray-500: #64748b;
+      --gray-700: #334155;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --radius: 12px;
+      --radius-lg: 16px;
+      --transition: all 0.2s ease;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      color: var(--dark);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark-800) 100%);
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-lg);
+    }
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: var(--gray-300);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    nav a:hover, nav a.active {
+      background: rgba(255,255,255,0.15);
+      color: white;
+    }
+    .header-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .btn {
+      padding: 0.5rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--gray-300);
+      color: var(--gray-300);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: white;
+      color: white;
+    }
+
+    /* Layout */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 2rem;
+    }
+
+    /* Sidebar */
+    aside {
+      position: sticky;
+      top: 80px;
+      height: fit-content;
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    .sidebar-section { margin-bottom: 1.5rem; }
+    .sidebar-title {
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gray-500);
+      margin-bottom: 0.75rem;
+    }
+    .sidebar-nav { list-style: none; }
+    .sidebar-nav li { margin-bottom: 0.25rem; }
+    .sidebar-nav a {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      color: var(--dark-700);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      border-left: 3px solid transparent;
+    }
+    .sidebar-nav a:hover,
+    .sidebar-nav a.active {
+      background: var(--gray-100);
+      color: var(--primary);
+      border-left-color: var(--primary);
+      font-weight: 500;
+    }
+    .sidebar-nav .nested {
+      margin-left: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Main Content */
+    main { display: flex; flex-direction: column; gap: 2rem; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark-800) 100%);
+      color: white;
+      padding: 2.5rem;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+    .hero h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+      max-width: 700px;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .tag {
+      background: rgba(255,255,255,0.15);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Blog Cards */
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 24px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid var(--gray-200);
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .card-icon.pulping { background: linear-gradient(135deg, #0ea5e9, #0284c7); color: white; }
+    .card-icon.papermaking { background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white; }
+    .card-icon.sustainability { background: linear-gradient(135deg, #10b981, #059669); color: white; }
+    .card-icon.optimization { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; }
+    
+    .card-title {
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-bottom: 0.25rem;
+    }
+    .card-subtitle {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      margin-bottom: 0.5rem;
+    }
+    .card-desc {
+      font-size: 0.95rem;
+      color: var(--gray-700);
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+    .card-functions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 1rem;
+    }
+    .func-tag {
+      background: var(--gray-100);
+      color: var(--dark-700);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+    }
+    .card-footer {
+      display: flex;
+      gap: 0.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--gray-200);
+    }
+    .card-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: var(--transition);
+    }
+    .card-link:hover { color: var(--primary-dark); }
+
+    /* Code Block */
+    .code-block {
+      background: var(--dark-800);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      border: 1px solid var(--dark-700);
+    }
+    .code-block .comment { color: #64748b; }
+    .code-block .keyword { color: #c084fc; }
+    .code-block .string { color: #86efac; }
+    .code-block .function { color: #60a5fa; }
+    .code-block .number { color: #fbbf24; }
+    .code-block .class { color: #f472b6; }
+
+    /* Installation Section */
+    .install-section {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+    }
+    .install-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .step {
+      text-align: center;
+      padding: 1rem;
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin: 0 auto 0.75rem;
+    }
+
+    /* Feature Highlights */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: var(--gray-100);
+      border-radius: var(--radius);
+    }
+    .feature-icon {
+      font-size: 1.25rem;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: var(--gray-300);
+      padding: 2rem;
+      margin-top: 3rem;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    .footer-section h4 {
+      color: white;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .footer-section a {
+      display: block;
+      color: var(--gray-300);
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      transition: var(--transition);
+      font-size: 0.95rem;
+    }
+    .footer-section a:hover { color: var(--primary); }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .container { grid-template-columns: 1fr; padding: 1rem; }
+      aside { position: static; }
+      .header-content { flex-wrap: wrap; }
+      nav ul { order: 3; width: 100%; margin-top: 1rem; justify-content: center; }
+      .header-actions { order: 2; }
+    }
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.75rem; }
+      .cards-grid { grid-template-columns: 1fr; }
+      nav ul { flex-direction: column; align-items: center; }
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card { animation: fadeIn 0.3s ease forwards; }
+    .card:nth-child(1) { animation-delay: 0.05s; }
+    .card:nth-child(2) { animation-delay: 0.1s; }
+    .card:nth-child(3) { animation-delay: 0.15s; }
+    .card:nth-child(4) { animation-delay: 0.2s; }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="logo">
-                <div class="logo-icon">P</div>
-                <h1>PapAiEra <span>Documentation</span></h1>
-            </div>
-            <div class="header-actions">
-                <a href="https://pypi.org/project/PapAiEra/" class="btn btn-outline" target="_blank">📦 PyPI</a>
-                <a href="https://github.com/krajasekhar1410/PapAiera" class="btn btn-outline" target="_blank">🐙 GitHub</a>
-                <a href="#installation" class="btn btn-primary">⚡ Get Started</a>
-            </div>
-        </div>
-    </header>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon">P</div>
+        <span>PapAiEra Docs</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#overview" class="active">Overview</a></li>
+          <li><a href="#pulping">Pulping</a></li>
+          <li><a href="#papermaking">Papermaking</a></li>
+          <li><a href="#sustainability">Sustainability</a></li>
+          <li><a href="#optimization">AI Solvers</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="https://pypi.org/project/PapAiEra/" target="_blank" class="btn btn-outline">PyPI</a>
+        <a href="https://github.com/krajasekhar1410/PapAiera" target="_blank" class="btn btn-primary">GitHub</a>
+      </div>
+    </div>
+  </header>
 
-    <div class="container">
-        <aside class="sidebar">
-            <h3>Navigation</h3>
-            <div class="search-box">
-                <input type="text" placeholder="Search docs..." id="searchInput">
-            </div>
-            <ul class="nav-list">
-                <li><a href="#overview" class="active">📋 Overview</a></li>
-                <li><a href="#installation">🔧 Installation</a></li>
-                <li><a href="#modules">📦 Modules</a>
-                    <ul class="submenu">
-                        <li><a href="#pulping">Pulping</a></li>
-                        <li><a href="#papermaking">Papermaking</a></li>
-                        <li><a href="#sustainability">Sustainability</a></li>
-                        <li><a href="#optimization">AI Solvers</a></li>
-                    </ul>
-                </li>
-                <li><a href="#examples">💡 Examples</a></li>
-                <li><a href="#api">📚 API Reference</a></li>
-                <li><a href="#troubleshooting">🛠️ Troubleshooting</a></li>
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Sidebar Navigation -->
+    <aside>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Getting Started</div>
+        <ul class="sidebar-nav">
+          <li><a href="#installation">📦 Installation</a></li>
+          <li><a href="#quickstart">🚀 Quick Start</a></li>
+          <li><a href="#architecture">🏗️ Architecture</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Modules</div>
+        <ul class="sidebar-nav">
+          <li><a href="#pulping">🌲 Pulping</a>
+            <ul class="nested">
+              <li><a href="#kraft">Kraft Process</a></li>
+              <li><a href="#sulphite">Sulphite Process</a></li>
+              <li><a href="#mechanical">Mechanical Pulping</a></li>
+              <li><a href="#recycled">Recycled Fibre</a></li>
+              <li><a href="#nonwood">Non-Wood Fibres</a></li>
+              <li><a href="#bleaching">Bleaching Engine</a></li>
             </ul>
-        </aside>
+          </li>
+          <li><a href="#papermaking">📄 Papermaking</a>
+            <ul class="nested">
+              <li><a href="#machine">Machine Operations</a></li>
+              <li><a href="#wetend">Wet End Chemistry</a></li>
+              <li><a href="#coating">Coating & Finishing</a></li>
+              <li><a href="#variability">Variability Analysis</a></li>
+            </ul>
+          </li>
+          <li><a href="#sustainability">♻️ Sustainability</a>
+            <ul class="nested">
+              <li><a href="#emissions">Emissions Tracking</a></li>
+              <li><a href="#water">Water Management</a></li>
+              <li><a href="#ems">Environmental Mgmt</a></li>
+            </ul>
+          </li>
+          <li><a href="#optimization">🧠 AI Optimization</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title">Resources</div>
+        <ul class="sidebar-nav">
+          <li><a href="https://github.com/krajasekhar1410/PapAiera/issues" target="_blank">🐛 Report Issue</a></li>
+          <li><a href="https://github.com/krajasekhar1410/PapAiera/discussions" target="_blank">💬 Discussions</a></li>
+          <li><a href="#examples">📚 Examples</a></li>
+        </ul>
+      </div>
+    </aside>
 
-        <main>
-            <!-- Overview -->
-            <section class="card" id="overview">
-                <div class="card-header">
-                    <div class="card-icon">📋</div>
-                    <h2>Overview</h2>
-                </div>
-                <p><strong>PapAiEra</strong> is a specialized Python library engineered for the <strong>Pulp and Paper industry</strong>. It mathematically models and solves optimization problems based on the <strong>Best Available Techniques (BAT)</strong> reference documents (EU BREF 2015).</p>
-                
-                <div class="features">
-                    <div class="feature">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">Comprehensive coverage of pulping, papermaking, and sustainability workflows</div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">AI-powered optimization using SciPy constraints and Differential Evolution</div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">Physics-aware digital twins for boiler and dryer hood optimization</div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">ML-based prediction models with industrial heuristics</div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">ABB-compliant Variance Partition Analysis (VPA) engine</div>
-                    </div>
-                </div>
+    <!-- Main Content Area -->
+    <main>
+      <!-- Hero Section -->
+      <section class="hero" id="overview">
+        <h1>PapAiEra: AI-Powered Optimization for Pulp & Paper Industry</h1>
+        <p>A specialized Python library that mathematically models and solves optimization problems based on Best Available Techniques (BAT) reference documents (EU BREF 2015).</p>
+        <div class="hero-tags">
+          <span class="tag">🔬 Process Modeling</span>
+          <span class="tag">🤖 Machine Learning</span>
+          <span class="tag">⚙️ Optimization</span>
+          <span class="tag">🌱 Sustainability</span>
+          <span class="tag">📊 Industry 4.0</span>
+        </div>
+        <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="#installation" class="btn btn-primary">Get Started</a>
+          <a href="#examples" class="btn btn-outline" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.3); color: white;">View Examples</a>
+        </div>
+      </section>
 
-                <div class="toc">
-                    <h4>📑 Quick Links</h4>
-                    <ul>
-                        <li><a href="#kraft-module">Kraft Pulping Module</a></li>
-                        <li><a href="#bleaching-optimizer">Universal Bleaching Optimizer</a></li>
-                        <li><a href="#bulk-model">ML Bulk Prediction Model</a></li>
-                        <li><a href="#vpa-analysis">Variance Partition Analysis</a></li>
-                        <li><a href="#boiler-optimizer">Boiler Digital Twin</a></li>
-                    </ul>
-                </div>
-            </section>
+      <!-- Installation -->
+      <section class="install-section" id="installation">
+        <h2 class="section-title">Installation</h2>
+        <p>Install PapAiEra via PyPI with a single command:</p>
+        <div class="code-block">
+          <span class="keyword">pip</span> install PapAiEra
+        </div>
+        <div class="install-steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <strong>Install</strong>
+            <p style="font-size: 0.9rem; color: var(--gray-500); margin-top: 0.25rem;">Via pip package manager</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <strong>Import</strong>
+            <p style="font-size: 0.9rem; color: var(--gray-500); margin-top: 0.25rem;">Use modules in your code</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <strong>Optimize</strong>
+            <p style="font-size: 0.9rem; color: var(--gray-500); margin-top: 0.25rem;">Apply BAT-compliant models</p>
+          </div>
+        </div>
+      </section>
 
-            <!-- Installation -->
-            <section class="card" id="installation">
-                <div class="card-header">
-                    <div class="card-icon">🔧</div>
-                    <h2>Installation</h2>
-                </div>
-                <p>Install PapAiEra via pip in your Python environment:</p>
-                
-                <div class="install-box">
-                    <code>pip install PapAiEra</code>
-                </div>
-                
-                <p><strong>Requirements:</strong> Python 3.8+, NumPy, SciPy, scikit-learn</p>
-                
-                <div class="features">
-                    <div class="feature">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">No system-level dependencies required</div>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">✓</div>
-                        <div class="feature-text">Pure Python implementation with optimized C extensions</div>
-                    </div>
-                </div>
-            </section>
+      <!-- Pulping Modules -->
+      <section id="pulping">
+        <h2 class="section-title">🌲 Pulping Modules</h2>
+        <p style="margin-bottom: 1.5rem; color: var(--gray-700);">Comprehensive tools for all major pulping processes with BAT compliance checking.</p>
+        
+        <div class="cards-grid">
+          <!-- Kraft Card -->
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon pulping">K</div>
+              <div>
+                <h3 class="card-title">Kraft Pulping</h3>
+                <p class="card-subtitle">pap_ai_era.pulping.kraft</p>
+              </div>
+            </div>
+            <p class="card-desc">H-factor calculation, digester mass balance, Kappa number prediction, recovery efficiency, black liquor solids monitoring, and BAT compliance validation.</p>
+            <div class="card-functions">
+              <span class="func-tag">calculate_h_factor()</span>
+              <span class="func-tag">digester_mass_balance()</span>
+              <span class="func-tag">predict_kappa()</span>
+              <span class="func-tag">check_bat_compliance()</span>
+            </div>
+            <div class="card-footer">
+              <a href="#kraft-example" class="card-link">View Example →</a>
+            </div>
+          </article>
 
-            <!-- Modules -->
-            <section class="card" id="modules">
-                <div class="card-header">
-                    <div class="card-icon">📦</div>
-                    <h2>Modules & Features</h2>
-                </div>
-                
-                <div class="module-grid">
-                    <!-- Pulping -->
-                    <div class="module-card" id="pulping">
-                        <h4>pap_ai_era.pulping</h4>
-                        <ul>
-                            <li><strong>kraft.py</strong>: H-factor, digester mass balance, Kappa numbers, BAT compliance</li>
-                            <li><strong>sulphite.py</strong>: Yield calculations, SO₂ & base recovery</li>
-                            <li><strong>mechanical.py</strong>: Energy intensity for SGW/PGW/TMP/CTMP</li>
-                            <li><strong>recycled.py</strong>: Deinking yield, fiber loss, rejects tracking</li>
-                            <li><strong>non_wood.py</strong>: Depithing efficiency, silica load for bagasse</li>
-                            <li><strong>bleaching/</strong>: Universal sequence optimizer</li>
-                            <li><strong>recovery_cycle.py</strong>: Causticizing, evaporator, lime kiln</li>
-                        </ul>
-                    </div>
+          <!-- Sulphite Card -->
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon pulping">S</div>
+              <div>
+                <h3 class="card-title">Sulphite Pulping</h3>
+                <p class="card-subtitle">pap_ai_era.pulping.sulphite</p>
+              </div>
+            </div>
+            <p class="card-desc">Yield calculations for paper and dissolving grades, SO₂ management, and Mg/Ca base recovery optimization with environmental constraints.</p>
+            <div class="card-functions">
+              <span class="func-tag">calculate_yield()</span>
+              <span class="func-tag">so2_recovery()</span>
+              <span class="func-tag">base_cycle_optimize()</span>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="card-link">View Example →</a>
+            </div>
+          </article>
 
-                    <!-- Papermaking -->
-                    <div class="module-card" id="papermaking">
-                        <h4>pap_ai_era.papermaking</h4>
-                        <ul>
-                            <li><strong>machine.py</strong>: Fiber mass balance, OEE, broke tracking</li>
-                            <li><strong>wet_end_chemistry.py</strong>: Dosing heuristics, pump conversions</li>
-                            <li><strong>coating.py</strong>: Colour recovery, ultrafiltration efficiency</li>
-                            <li><strong>variability_analysis.py</strong>: ABB VPA engine (MDL/CD/MDS)</li>
-                            <li><strong>hood_optimizer.py</strong>: Dryer hood energy optimization</li>
-                            <li><strong>bulk_model.py</strong>: ML-based multi-layer bulk prediction</li>
-                        </ul>
-                    </div>
+          <!-- Mechanical Card -->
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon pulping">M</div>
+              <div>
+                <h3 class="card-title">Mechanical Pulping</h3>
+                <p class="card-subtitle">pap_ai_era.pulping.mechanical</p>
+              </div>
+            </div>
+            <p class="card-desc">Energy intensity modeling for SGW, PGW, TMP, and CTMP processes with heat recovery potential analysis and optimization recommendations.</p>
+            <div class="card-functions">
+              <span class="func-tag">energy_intensity_sgw()</span>
+              <span class="func-tag">tmp_optimization()</span>
+              <span class="func-tag">heat_recovery_potential()</span>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="card-link">View Example →</a>
+            </div>
+          </article>
 
-                    <!-- Sustainability -->
-                    <div class="module-card" id="sustainability">
-                        <h4>pap_ai_era.sustainability</h4>
-                        <ul>
-                            <li><strong>emissions.py</strong>: BOD/COD/TSS water loads</li>
-                            <li><strong>air_emissions.py</strong>: TRS, SO₂, NOₓ, Dust tracking</li>
-                            <li><strong>wastewater.py</strong>: Loop closure, water accounting</li>
-                            <li><strong>water_energy.py</strong>: Cooling vs contaminated water</li>
-                            <li><strong>power_plant.py</strong>: Boiler efficiency, steam tracking</li>
-                            <li><strong>EMS</strong>: ISO 14001 grading, waste footprint</li>
-                        </ul>
-                    </div>
+          <!-- Bleaching Card -->
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon pulping">B</div>
+              <div>
+                <h3 class="card-title">Universal Bleaching Engine</h3>
+                <p class="card-subtitle">pap_ai_era.pulping.bleaching</p>
+              </div>
+            </div>
+            <p class="card-desc">AI-driven bleaching sequence optimizer supporting dynamic stage configuration, chemical cost minimization, and quality target achievement (Brightness, Kappa, Viscosity).</p>
+            <div class="card-functions">
+              <span class="func-tag">run_optimization_from_config()</span>
+              <span class="func-tag">build_sequence()</span>
+              <span class="func-tag">simulate_stage()</span>
+            </div>
+            <div class="card-footer">
+              <a href="#bleaching-example" class="card-link">View Example →</a>
+            </div>
+          </article>
+        </div>
 
-                    <!-- Optimization -->
-                    <div class="module-card" id="optimization">
-                        <h4>pap_ai_era.optimization_models</h4>
-                        <ul>
-                            <li><code>optimize_batch_kraft_digester()</code></li>
-                            <li><code>optimize_continuous_kamyr_digester()</code></li>
-                            <li><code>optimize_bleaching_sequence_cost()</code></li>
-                            <li><code>optimize_sulphite_base_recovery()</code></li>
-                            <li><code>optimize_machine_steam_consumption()</code></li>
-                            <li><code>optimize_wet_end_dosing()</code></li>
-                            <li><code>optimize_cogeneration_tg_fuel()</code></li>
-                        </ul>
-                        <span class="badge badge-primary">SciPy</span>
-                        <span class="badge badge-success">Non-linear</span>
-                    </div>
-                </div>
-            </section>
+        <!-- Kraft Example -->
+        <div id="kraft-example" style="margin-top: 2rem; background: white; padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow);">
+          <h4 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="background: var(--primary); color: white; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.8rem;">Example</span>
+            Kraft Digester H-Factor Calculation
+          </h4>
+          <div class="code-block">
+<span class="keyword">from</span> pap_ai_era.pulping.kraft <span class="keyword">import</span> calculate_h_factor
 
-            <!-- Examples -->
-            <section class="card" id="examples">
-                <div class="card-header">
-                    <div class="card-icon">💡</div>
-                    <h2>Advanced Usage Examples</h2>
-                </div>
+<span class="comment"># Calculate integrated cooking reaction rate</span>
+<span class="comment"># 165°C cooking zone for 45 minutes</span>
+h_factor = calculate_h_factor(
+    temperature_celsius=<span class="number">165.0</span>,
+    time_minutes=<span class="number">45.0</span>
+)
+<span class="keyword">print</span>(<span class="string">f"H-Factor Generated: {h_factor:.2f}"</span>)
+<span class="comment"># Output: H-Factor Generated: 892.45</span>
+          </div>
+        </div>
 
-                <!-- Bleaching Optimizer -->
-                <div class="api-section" id="bleaching-optimizer">
-                    <h3>🧠 Universal Bleaching Optimizer</h3>
-                    <p>Define custom bleaching stages with dynamic chemical optimization using Differential Evolution.</p>
-                    
-                    <div class="features">
-                        <div class="feature">
-                            <div class="feature-icon">✓</div>
-                            <div class="feature-text"><strong>Dynamic Sequences:</strong> Support any stage configuration (D0-EOP-D1, O-Z-P, etc.)</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">✓</div>
-                            <div class="feature-text"><strong>AI Simulation:</strong> Plug-in system for Heuristic, PNN, or Regression models</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">✓</div>
-                            <div class="feature-text"><strong>Global Optimization:</strong> Minimize chemical cost while hitting quality targets</div>
-                        </div>
-                    </div>
-
-                    <div class="code-block"><code><span class="keyword">from</span> pap_ai_era.bleaching <span class="keyword">import</span> run_optimization_from_config
+        <!-- Bleaching Example -->
+        <div id="bleaching-example" style="margin-top: 1.5rem; background: white; padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow);">
+          <h4 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="background: var(--accent); color: white; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.8rem;">Advanced</span>
+            Universal Bleaching Optimizer
+          </h4>
+          <div class="code-block">
+<span class="keyword">from</span> pap_ai_era.bleaching <span class="keyword">import</span> run_optimization_from_config
 
 config = {
     <span class="string">"stages"</span>: [
         {
             <span class="string">"name"</span>: <span class="string">"D0"</span>,
-            <span class="string">"chemicals"</span>: [{<span class="string">"name"</span>: <span class="string">"ClO2"</span>, <span class="string">"min_dosage"</span>: <span class="number">5</span>, <span class="string">"max_dosage"</span>: <span class="number">30</span>, <span class="string">"cost"</span>: <span class="number">0.8</span>}]
+            <span class="string">"chemicals"</span>: [
+                {<span class="string">"name"</span>: <span class="string">"ClO2"</span>, <span class="string">"min_dosage"</span>: <span class="number">5</span>, <span class="string">"max_dosage"</span>: <span class="number">30</span>, <span class="string">"cost"</span>: <span class="number">0.8</span>}
+            ]
         },
         {
             <span class="string">"name"</span>: <span class="string">"EOP"</span>,
@@ -750,244 +718,425 @@ config = {
     ],
     <span class="string">"targets"</span>: {<span class="string">"brightness"</span>: <span class="number">90.0</span>, <span class="string">"kappa"</span>: <span class="number">2.0</span>, <span class="string">"viscosity_min"</span>: <span class="number">800</span>}
 }
-result = run_optimization_from_config(config)</code></div>
-                </div>
 
-                <!-- VPA Analysis -->
-                <div class="api-section" id="vpa-analysis">
-                    <h3>📊 Variance Partition Analysis (VPA)</h3>
-                    <p>ABB-compliant 2-Sigma analysis decomposing reel variability into Machine Direction (MDL), Cross Direction (CD), and Residual (MDS) components.</p>
+result = run_optimization_from_config(config)
+<span class="comment"># Returns optimal chemical dosages minimizing cost while meeting quality targets</span>
+          </div>
+        </div>
+      </section>
 
-                    <div class="code-block"><code><span class="keyword">import</span> numpy <span class="keyword">as</span> np
-<span class="keyword">from</span> pap_ai_era.papermaking.variability_analysis <span class="keyword">import</span> compute_vpa
+      <!-- Papermaking Modules -->
+      <section id="papermaking" style="margin-top: 3rem;">
+        <h2 class="section-title">📄 Papermaking Modules</h2>
+        <p style="margin-bottom: 1.5rem; color: var(--gray-700);">End-to-end paper machine optimization from wet end to reel, with ML-powered predictions.</p>
+        
+        <div class="cards-grid">
+          <!-- Machine Ops Card -->
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon papermaking">M</div>
+              <div>
+                <h3 class="card-title">Machine Operations</h3>
+                <p class="card-subtitle">pap_ai_era.papermaking.machine</p>
+              </div>
+            </div>
+            <p class="card-desc">Fiber mass balance tracking, OEE calculation, broke management, wire retention analysis, and dryer section steam economy optimization.</p>
+            <div class="card-functions">
+              <span class="func-tag">calculate_oee()</span>
+              <span class="func-tag">fiber_mass_balance()</span>
+              <span class="func-tag">track_broke()</span>
+              <span class="func-tag">dryer_economy()</span>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="card-link">View Example →</a>
+            </div>
+          </article>
 
-<span class="comment"># 50 scans × 600 data boxes</span>
-data = np.random.normal(loc=<span class="number">50</span>, scale=<span class="number">1.5</span>, size=(<span class="number">50</span>, <span class="number">600</span>))
-vpa_report = compute_vpa(data, process_average=<span class="number">50.0</span>)
+          <!-- Wet End Card -->
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon papermaking">W</div>
+              <div>
+                <h3 class="card-title">Wet End Chemistry</h3>
+                <p class="card-subtitle">pap_ai_era.papermaking.wet_end_chemistry</p>
+              </div>
+            </div>
+            <p class="card-desc">Furnish-based chemical dosing heuristics, pump conversion algorithms (GPL→LPH), ash retention modeling, and first-pass retention optimization.</p>
+            <div class="card-functions">
+              <span class="func-tag">optimize_dosing()</span>
+              <span class="func-tag">convert_gpl_to_lph()</span>
+              <span class="func-tag">predict_ash_retention()</span>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="card-link">View Example →</a>
+            </div>
+          </article>
 
-print(<span class="string">f"Total 2-Sigma Variability: {vpa_report.normalised['TOT']:.2f}%"</span>)
-print(<span class="string">f"Primary Problem Detected: {vpa_report.primary_problem}"</span>)</code></div>
-                </div>
+          <!-- Bulk Model Card -->
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon papermaking">B</div>
+              <div>
+                <h3 class="card-title">ML Bulk Prediction</h3>
+                <p class="card-subtitle">pap_ai_era.papermaking.BulkModel</p>
+              </div>
+            </div>
+            <p class="card-desc">Physics-aware machine learning model predicting paper/board bulk (cm³/g) based on layer-wise furnish, pulp properties (CSF, SW/HW ratio), and pressing conditions.</p>
+            <div class="card-functions">
+              <span class="func-tag">BulkModel.predict()</span>
+              <span class="func-tag">BulkModel.train()</span>
+              <span class="func-tag">sensitivity_analysis()</span>
+            </div>
+            <div class="card-footer">
+              <a href="#bulk-example" class="card-link">View Example →</a>
+            </div>
+          </article>
 
-                <!-- Bulk Model -->
-                <div class="api-section" id="bulk-model">
-                    <h3>📚 ML Bulk Prediction Model</h3>
-                    <p>Physics-aware Random Forest regression for predicting paper/board bulk (cm³/g) with layer-wise furnish analysis.</p>
+          <!-- VPA Card -->
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon papermaking">V</div>
+              <div>
+                <h3 class="card-title">Variability Analysis (VPA)</h3>
+                <p class="card-subtitle">pap_ai_era.papermaking.variability_analysis</p>
+              </div>
+            </div>
+            <p class="card-desc">ABB-compliant Variance Partition Analysis decomposing reel variability into Machine Direction (MDL), Cross Direction (CD), and Residual (MDS) with root-cause inference.</p>
+            <div class="card-functions">
+              <span class="func-tag">compute_vpa()</span>
+              <span class="func-tag">decompose_variability()</span>
+              <span class="func-tag">identify_root_cause()</span>
+            </div>
+            <div class="card-footer">
+              <a href="#vpa-example" class="card-link">View Example →</a>
+            </div>
+          </article>
+        </div>
 
-                    <div class="features">
-                        <div class="feature">
-                            <div class="feature-icon">✓</div>
-                            <div class="feature-text"><strong>Multi-Layer Support:</strong> Independent pulp blends for Top/Middle/Bottom layers</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">✓</div>
-                            <div class="feature-text"><strong>Hybrid Modeling:</strong> Combines ML with industrial heuristics for robustness</div>
-                        </div>
-                        <div class="feature">
-                            <div class="feature-icon">✓</div>
-                            <div class="feature-text"><strong>Process Sensitivity:</strong> Track impact of nip load, refining (CSF) on sheet thickness</div>
-                        </div>
-                    </div>
+        <!-- Bulk Model Example -->
+        <div id="bulk-example" style="margin-top: 2rem; background: white; padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow);">
+          <h4 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="background: var(--secondary); color: white; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.8rem;">ML Model</span>
+            Bulk Prediction with Multi-Layer Support
+          </h4>
+          <div class="code-block">
+<span class="keyword">from</span> pap_ai_era.papermaking <span class="keyword">import</span> BulkModel
 
-                    <div class="code-block"><code><span class="keyword">from</span> pap_ai_era.papermaking <span class="keyword">import</span> BulkModel
-
-<span class="comment"># Define layer structure and process conditions</span>
+<span class="comment"># Define multi-layer sheet structure</span>
 layers = [
     {<span class="string">"gsm"</span>: <span class="number">50</span>, <span class="string">"sw_ratio"</span>: <span class="number">0.9</span>, <span class="string">"csf"</span>: <span class="number">550</span>},  <span class="comment"># Top layer</span>
-    {<span class="string">"gsm"</span>: <span class="number">150</span>, <span class="string">"sw_ratio"</span>: <span class="number">0.1</span>, <span class="string">"csf"</span>: <span class="number">400</span>}  <span class="comment"># Middle layer</span>
+    {<span class="string">"gsm"</span>: <span class="number">150</span>, <span class="string">"sw_ratio"</span>: <span class="number">0.1</span>, <span class="string">"csf"</span>: <span class="number">400</span>}   <span class="comment"># Bottom layer</span>
 ]
 process = {<span class="string">"nip_load"</span>: <span class="number">60</span>, <span class="string">"n_nips"</span>: <span class="number">2</span>}
 
+<span class="comment"># Initialize and predict (model can be trained on historical mill data)</span>
 model = BulkModel(n_layers=<span class="number">2</span>)
-<span class="comment"># model.train(historical_data)  # Optional: train on mill data</span>
-predicted_bulk = model.predict(layers, process)</code></div>
-                </div>
+<span class="comment"># model.train(historical_data)</span>
+predicted_bulk = model.predict(layers, process)
 
-                <!-- Kraft H-Factor -->
-                <div class="api-section" id="kraft-module">
-                    <h3>⚙️ Kraft Digester H-Factor Calculator</h3>
-                    <p>Calculate integrated cooking reaction rate using the Vroom equation to hit target Kappa numbers.</p>
+<span class="keyword">print</span>(<span class="string">f"Predicted Bulk: {predicted_bulk:.3f} cm³/g"</span>)
+          </div>
+        </div>
 
-                    <div class="code-block"><code><span class="keyword">from</span> pap_ai_era.pulping.kraft <span class="keyword">import</span> calculate_h_factor
+        <!-- VPA Example -->
+        <div id="vpa-example" style="margin-top: 1.5rem; background: white; padding: 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow);">
+          <h4 style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+            <span style="background: var(--warning); color: white; padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.8rem;">Analytics</span>
+            Variance Partition Analysis (2-Sigma)
+          </h4>
+          <div class="code-block">
+<span class="keyword">import</span> numpy <span class="keyword">as</span> np
+<span class="keyword">from</span> pap_ai_era.papermaking.variability_analysis <span class="keyword">import</span> compute_vpa
 
-<span class="comment"># 165°C cooking zone for 45 minutes</span>
-h_factor = calculate_h_factor(temperature_celsius=<span class="number">165.0</span>, time_minutes=<span class="number">45.0</span>)
-print(<span class="string">f"H-Factor Generated: {h_factor:.2f}"</span>)</code></div>
-                </div>
+<span class="comment"># Simulated scan data: 50 scans × 600 cross-direction boxes</span>
+data = np.random.normal(loc=<span class="number">50</span>, scale=<span class="number">1.5</span>, size=(<span class="number">50</span>, <span class="number">600</span>))
 
-                <!-- Boiler Optimizer -->
-                <div class="api-section" id="boiler-optimizer">
-                    <h3>🔥 Universal Boiler Optimizer</h3>
-                    <p>Physics-aware Digital Twin using hybrid modeling to maximize thermal efficiency within safety constraints.</p>
+<span class="comment"># Compute VPA report with process average reference</span>
+vpa_report = compute_vpa(data, process_average=<span class="number">50.0</span>)
 
-                    <div class="code-block"><code><span class="keyword">from</span> pap_ai_era.energy.boiler_optimizer <span class="keyword">import</span> Boiler, BoilerOptimizer
+<span class="keyword">print</span>(<span class="string">f"Total 2-Sigma Variability: {vpa_report.normalised['TOT']:.2f}%"</span>)
+<span class="keyword">print</span>(<span class="string">f"Primary Problem Detected: {vpa_report.primary_problem}"</span>)
+<span class="comment"># Output: Total 2-Sigma Variability: 6.12%</span>
+<span class="comment">#         Primary Problem Detected: Cross Direction Profile</span>
+          </div>
+        </div>
+      </section>
 
-config = {<span class="string">"boiler_type"</span>: <span class="string">"AFBC"</span>, <span class="string">"fuel"</span>: {<span class="string">"CV"</span>: <span class="number">4200</span>}}
-boiler = Boiler(config)
-optimizer = BoilerOptimizer(boiler)
+      <!-- Sustainability Modules -->
+      <section id="sustainability" style="margin-top: 3rem;">
+        <h2 class="section-title">♻️ Sustainability Modules</h2>
+        <p style="margin-bottom: 1.5rem; color: var(--gray-700);">Comprehensive environmental impact tracking aligned with ISO 14001 and EU BREF standards.</p>
+        
+        <div class="cards-grid">
+          <!-- Emissions Card -->
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon sustainability">E</div>
+              <div>
+                <h3 class="card-title">Emissions Tracking</h3>
+                <p class="card-subtitle">pap_ai_era.sustainability.emissions</p>
+              </div>
+            </div>
+            <p class="card-desc">Calculate and report BOD/COD/TSS loads to water bodies, and TRS/SO₂/NOₓ/Dust emissions to air with BAT reference value comparisons.</p>
+            <div class="card-functions">
+              <span class="func-tag">calculate_water_loads()</span>
+              <span class="func-tag">estimate_air_emissions()</span>
+              <span class="func-tag">check_bat_limits()</span>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="card-link">View Example →</a>
+            </div>
+          </article>
 
-<span class="comment"># Optimize for maximum efficiency with disturbances</span>
-result = optimizer.optimize(disturbances={<span class="string">"feedwater_temp"</span>: <span class="number">110</span>})</code></div>
-                </div>
-            </section>
+          <!-- Water Card -->
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon sustainability">W</div>
+              <div>
+                <h3 class="card-title">Water & Wastewater</h3>
+                <p class="card-subtitle">pap_ai_era.sustainability.wastewater</p>
+              </div>
+            </div>
+            <p class="card-desc">Loop closure analysis, explicit cooling-water vs contaminated-water accounting, and wastewater treatment efficiency modeling.</p>
+            <div class="card-functions">
+              <span class="func-tag">analyze_loop_closure()</span>
+              <span class="func-tag">water_balance()</span>
+              <span class="func-tag">treatment_efficiency()</span>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="card-link">View Example →</a>
+            </div>
+          </article>
 
-            <!-- API Reference -->
-            <section class="card" id="api">
-                <div class="card-header">
-                    <div class="card-icon">📚</div>
-                    <h2>API Reference</h2>
-                </div>
+          <!-- EMS Card -->
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon sustainability">M</div>
+              <div>
+                <h3 class="card-title">Environmental Management</h3>
+                <p class="card-subtitle">pap_ai_era.sustainability.ems</p>
+              </div>
+            </div>
+            <p class="card-desc">ISO 14001 compliance grading, solid waste footprint calculation (Ash + Sludge + Rejects), and sustainability KPI dashboards.</p>
+            <div class="card-functions">
+              <span class="func-tag">iso14001_grade()</span>
+              <span class="func-tag">calculate_waste_footprint()</span>
+              <span class="func-tag">generate_sustainability_report()</span>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="card-link">View Example →</a>
+            </div>
+          </article>
+        </div>
+      </section>
 
-                <div class="api-function">
-                    <h4>calculate_h_factor(temperature_celsius: float, time_minutes: float) → float</h4>
-                    <p>Computes the Vroom H-factor for kraft pulping based on temperature and time.</p>
-                    <div class="api-params">
-                        <strong>Parameters:</strong> 
-                        <code>temperature_celsius</code> (float): Cooking temperature | 
-                        <code>time_minutes</code> (float): Residence time
-                    </div>
-                    <div class="api-params">
-                        <strong>Returns:</strong> <code>float</code> - Integrated H-factor value
-                    </div>
-                </div>
+      <!-- AI Optimization Solvers -->
+      <section id="optimization" style="margin-top: 3rem;">
+        <h2 class="section-title">🧠 Mathematical AI Solvers</h2>
+        <p style="margin-bottom: 1.5rem; color: var(--gray-700);">Non-linear optimization engines using SciPy constraints for optimal process setpoints and chemical dosing.</p>
+        
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon">⚡</div>
+            <div>
+              <strong>Multi-Objective Optimization</strong>
+              <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: 0.25rem;">Balance cost, quality, and sustainability targets simultaneously</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🔒</div>
+            <div>
+              <strong>Constraint-Aware</strong>
+              <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: 0.25rem;">Respects operational safety limits and regulatory boundaries</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🔄</div>
+            <div>
+              <strong>Hybrid Modeling</strong>
+              <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: 0.25rem;">Combines first-principles physics with ML residuals</p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🎯</div>
+            <div>
+              <strong>Global Search</strong>
+              <p style="font-size: 0.9rem; color: var(--gray-600); margin-top: 0.25rem;">Differential Evolution avoids local minima traps</p>
+            </div>
+          </div>
+        </div>
 
-                <div class="api-function">
-                    <h4>run_optimization_from_config(config: dict) → OptimizationResult</h4>
-                    <p>Executes global optimization for bleaching sequences using Differential Evolution.</p>
-                    <div class="api-params">
-                        <strong>Parameters:</strong> 
-                        <code>config</code> (dict): Dictionary with <code>stages</code>, <code>chemicals</code>, and <code>targets</code>
-                    </div>
-                    <div class="api-params">
-                        <strong>Returns:</strong> <code>OptimizationResult</code> with optimal dosages, cost, and convergence status
-                    </div>
-                </div>
+        <div class="cards-grid" style="margin-top: 1.5rem;">
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon optimization">🔍</div>
+              <div>
+                <h3 class="card-title">Available Optimizers</h3>
+              </div>
+            </div>
+            <div class="card-functions" style="flex-direction: column; align-items: flex-start;">
+              <span class="func-tag">optimize_batch_kraft_digester()</span>
+              <span class="func-tag">optimize_continuous_kamyr_digester()</span>
+              <span class="func-tag">optimize_bleaching_sequence_cost()</span>
+              <span class="func-tag">optimize_sulphite_base_recovery()</span>
+              <span class="func-tag">optimize_machine_steam_consumption()</span>
+              <span class="func-tag">optimize_wet_end_dosing()</span>
+              <span class="func-tag">optimize_cogeneration_tg_fuel()</span>
+            </div>
+            <div class="card-footer">
+              <a href="https://github.com/krajasekhar1410/PapAiera/tree/main/pap_ai_era/optimization_models" target="_blank" class="card-link">Explore Source →</a>
+            </div>
+          </article>
 
-                <div class="api-function">
-                    <h4>compute_vpa(data: np.ndarray, process_average: float) → VPAReport</h4>
-                    <p>Performs Variance Partition Analysis decomposing variability into MDL, CD, and MDS components.</p>
-                    <div class="api-params">
-                        <strong>Parameters:</strong> 
-                        <code>data</code> (ndarray): 2D array of shape (scans, data_boxes) | 
-                        <code>process_average</code> (float): Target process mean
-                    </div>
-                    <div class="api-params">
-                        <strong>Returns:</strong> <code>VPAReport</code> with normalized variances and root-cause inference
-                    </div>
-                </div>
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon optimization">🔥</div>
+              <div>
+                <h3 class="card-title">Boiler Digital Twin</h3>
+                <p class="card-subtitle">pap_ai_era.energy.boiler_optimizer</p>
+              </div>
+            </div>
+            <p class="card-desc">Physics-aware hybrid model maximizing thermal efficiency while respecting O₂%, pressure, and temperature constraints.</p>
+            <div class="card-functions">
+              <span class="func-tag">Boiler()</span>
+              <span class="func-tag">BoilerOptimizer.optimize()</span>
+              <span class="func-tag">efficiency_analysis()</span>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="card-link">View Example →</a>
+            </div>
+          </article>
 
-                <div class="api-function">
-                    <h4>BulkModel.predict(layers: list, process: dict) → float</h4>
-                    <p>Predicts paper bulk using physics-aware ML model with layer-wise furnish inputs.</p>
-                    <div class="api-params">
-                        <strong>Parameters:</strong> 
-                        <code>layers</code> (list): List of dicts with <code>gsm</code>, <code>sw_ratio</code>, <code>csf</code> | 
-                        <code>process</code> (dict): Dict with <code>nip_load</code>, <code>n_nips</code>
-                    </div>
-                    <div class="api-params">
-                        <strong>Returns:</strong> <code>float</code> - Predicted bulk in cm³/g
-                    </div>
-                </div>
+          <article class="card">
+            <div class="card-header">
+              <div class="card-icon optimization">💨</div>
+              <div>
+                <h3 class="card-title">Hood Energy Optimizer</h3>
+                <p class="card-subtitle">pap_ai_era.papermaking.hood_optimizer</p>
+              </div>
+            </div>
+            <p class="card-desc">Balances evaporation load against airflow/recirculation to minimize steam and electrical energy while ensuring target dryness.</p>
+            <div class="card-functions">
+              <span class="func-tag">run_hood_optimization()</span>
+              <span class="func-tag">calculate_drying_load()</span>
+              <span class="func-tag">optimize_fan_rpm()</span>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="card-link">View Example →</a>
+            </div>
+          </article>
+        </div>
+      </section>
 
-                <div class="api-function">
-                    <h4>run_hood_optimization(params: dict) → dict</h4>
-                    <p>Optimizes paper machine dryer hood balancing evaporation load against energy consumption.</p>
-                    <div class="api-params">
-                        <strong>Parameters:</strong> 
-                        <code>params</code> (dict): Machine speed, GSM, width, moisture targets, ambient conditions
-                    </div>
-                    <div class="api-params">
-                        <strong>Returns:</strong> <code>dict</code> with optimal fan RPM, recirculation ratio, and energy savings
-                    </div>
-                </div>
-            </section>
+      <!-- Quick Reference -->
+      <section style="margin-top: 3rem; background: white; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-md);">
+        <h2 class="section-title">📚 Quick Reference</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+          <div>
+            <h4 style="margin-bottom: 0.75rem; color: var(--primary);">🔧 Core Imports</h4>
+            <div class="code-block" style="padding: 1rem; font-size: 0.85rem;">
+<span class="keyword">from</span> pap_ai_era.pulping <span class="keyword">import</span> kraft
+<span class="keyword">from</span> pap_ai_era.papermaking <span class="keyword">import</span> machine, BulkModel
+<span class="keyword">from</span> pap_ai_era.sustainability <span class="keyword">import</span> emissions
+<span class="keyword">from</span> pap_ai_era.optimization_models <span class="keyword">import</span> *
+            </div>
+          </div>
+          <div>
+            <h4 style="margin-bottom: 0.75rem; color: var(--primary);">🎯 Key Parameters</h4>
+            <ul style="font-size: 0.9rem; color: var(--gray-700); line-height: 1.8;">
+              <li><code>temperature_celsius</code> - Process temperature</li>
+              <li><code>time_minutes</code> - Reaction duration</li>
+              <li><code>target_gsm</code> - Paper basis weight</li>
+              <li><code>moisture_pct</code> - Water content target</li>
+              <li><code>chemical_dosage</code> - Additive amounts</li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="margin-bottom: 0.75rem; color: var(--primary);">📦 Output Types</h4>
+            <ul style="font-size: 0.9rem; color: var(--gray-700); line-height: 1.8;">
+              <li><code>dict</code> - Detailed results with metrics</li>
+              <li><code>float</code> - Single calculated values</li>
+              <code>dataclass</code> - Structured optimization reports
+              <li><code>numpy.array</code> - Variability analysis matrices</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 
-            <!-- Troubleshooting -->
-            <section class="card" id="troubleshooting">
-                <div class="card-header">
-                    <div class="card-icon">🛠️</div>
-                    <h2>Troubleshooting</h2>
-                </div>
-                
-                <div class="module-grid">
-                    <div class="module-card">
-                        <h4>⚠️ Optimization returns <code>success: False</code></h4>
-                        <p>Target constraints may be mathematically impossible given the current bounds.</p>
-                        <p><strong>Solution:</strong> Adjust boundary values in the <code>bounds</code> parameter or relax quality targets.</p>
-                    </div>
-                    
-                    <div class="module-card">
-                        <h4>❌ Import Errors</h4>
-                        <p>Module not found after installation.</p>
-                        <p><strong>Solution:</strong> Ensure you run <code>pip install PapAiEra</code> in your active virtual environment. Verify with <code>pip list | grep PapAiEra</code>.</p>
-                    </div>
-                    
-                    <div class="module-card">
-                        <h4>📐 VPA Data Shape Error</h4>
-                        <p>Variance Partition Analysis expects specific input dimensions.</p>
-                        <p><strong>Solution:</strong> Provide a 2D NumPy array of shape <code>(scans, data_boxes)</code>. Example: <code>(50, 600)</code> for 50 machine scans with 600 measurement points each.</p>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <footer>
-        <p>📄 PapAiEra Documentation | Built with ❤️ for the Pulp & Paper Industry</p>
-        <p>
-            <a href="https://github.com/krajasekhar1410/PapAiera" target="_blank">View on GitHub</a> • 
-            <a href="https://pypi.org/project/PapAiEra/" target="_blank">PyPI Package</a> • 
-            <a href="https://github.com/krajasekhar1410/PapAiera/issues" target="_blank">Report Issues</a>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>PapAiEra</h4>
+        <p style="font-size: 0.9rem; line-height: 1.6; margin-top: 0.5rem;">
+          AI-powered optimization library for the pulp and paper industry, built on EU BREF 2015 Best Available Techniques.
         </p>
-        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Based on EU BREF 2015 Best Available Techniques Reference Documents</p>
-    </footer>
+      </div>
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <a href="https://pypi.org/project/PapAiEra/" target="_blank">📦 PyPI Package</a>
+        <a href="https://github.com/krajasekhar1410/PapAiera" target="_blank">💻 Source Code</a>
+        <a href="https://github.com/krajasekhar1410/PapAiera/issues" target="_blank">🐛 Report Bug</a>
+        <a href="https://github.com/krajasekhar1410/PapAiera/discussions" target="_blank">💬 Community</a>
+      </div>
+      <div class="footer-section">
+        <h4>Documentation</h4>
+        <a href="#installation">📦 Installation Guide</a>
+        <a href="#pulping">🌲 Pulping Modules</a>
+        <a href="#papermaking">📄 Papermaking Tools</a>
+        <a href="#optimization">🧠 AI Optimizers</a>
+      </div>
+      <div class="footer-section">
+        <h4>Standards</h4>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">
+          ✓ EU BREF 2015<br/>
+          ✓ ISO 14001 EMS<br/>
+          ✓ BAT Reference Documents<br/>
+          ✓ ABB Variability Standards
+        </p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--dark-700); font-size: 0.9rem; color: var(--gray-500);">
+      © 2024 PapAiEra Library | MIT License | Built for Industry 4.0 in Pulp & Paper
+    </div>
+  </footer>
 
-    <script>
-        // Simple search functionality
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase();
-            const sections = document.querySelectorAll('.card, .module-card, .api-function');
-            
-            sections.forEach(section => {
-                const text = section.textContent.toLowerCase();
-                section.style.display = text.includes(query) ? '' : 'none';
-            });
+  <script>
+    // Simple scroll spy for active navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.sidebar-nav a, header nav a');
+      
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          if (pageYOffset >= sectionTop) {
+            current = section.getAttribute('id');
+          }
         });
+        
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href')?.includes(current)) {
+            link.classList.add('active');
+          }
+        });
+      });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Update active state
-                    document.querySelectorAll('.nav-list a').forEach(a => a.classList.remove('active'));
-                    this.classList.add('active');
-                }
-            });
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
         });
-
-        // Highlight active section on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-list a');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 150;
-                if (pageYOffset >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
+      });
+    });
+  </script>
 </body>
 </html>
